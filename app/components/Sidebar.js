@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { sidebarLinks, sidebarButtons, paymentLinks } from '../data';
+import { sidebarLinks, sidebarButtons, paymentLinks, termsLinks } from '../data';
 
 const List = ({ items }) => (
   <ul className="side-list">
@@ -21,6 +21,7 @@ export default function Sidebar() {
         <span className="card visa">VISA</span>
         <span className="card mc">Mastercard</span>
       </div>
+      <List items={termsLinks} />
     </aside>
   );
 }

@@ -35,6 +35,8 @@ export const paymentLinks = [
   { label: 'Direct deposit', href: '/direct-deposit' },
 ];
 
+export const termsLinks = [{ label: 'Terms & Conditions', href: '/terms-and-conditions' }];
+
 export const products = [
   'Bed Sheets', 'Duvet Covers', 'Pillow Covers', 'Duvets', 'Pillows', 'Mattress Protectors',
   'Blankets', 'Bed Spreads', 'Bath Towels', 'Hand Towels', 'Face Towels', 'Pool Towels',
@@ -47,5 +49,5 @@ export const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replac
 export const footerLinks = [...topLinks.slice(1), ...mainNav.slice(1)];
 
 // Every internal page the links above point to, used to pre-render placeholders.
-export const allPages = [...topLinks, ...mainNav, ...sidebarLinks, ...sidebarButtons, ...paymentLinks]
+export const allPages = [...topLinks, ...mainNav, ...sidebarLinks, ...sidebarButtons, ...paymentLinks, ...termsLinks]
   .filter((l) => l.href !== '/');

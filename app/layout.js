@@ -6,6 +6,9 @@ import { brand } from './data';
 
 export const metadata = { title: `${brand.name} — Hotel Linen`, description: 'Bed linen, towels and blankets supplied in bulk.' };
 
+// Fixed-width page like the reference: phones and tablets zoom the desktop layout out to fit.
+export const viewport = { width: 1260, initialScale: undefined };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
