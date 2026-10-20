@@ -87,9 +87,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Inner pages */
 .title { margin: 0 0 18px; padding-bottom: 6px; border-bottom: 1px solid var(--silver); font: 600 34px var(--serif); }
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px 20px; }
-.tile { text-align: center; font-weight: 500; }
-.tile::before { content: ''; display: block; aspect-ratio: 1; margin-bottom: 8px; border: 1px solid var(--silver); border-radius: 8px; background: linear-gradient(135deg, #fff, var(--ice)); }
+/* Product gallery: bordered 4-column photo grid like the reference's Bed Linen page */
+.category + .category { margin-top: 28px; }
+.category h2 { margin: 0 0 12px; color: var(--cobalt); font: 600 22px var(--sans); }
+.gallery { display: grid; grid-template-columns: repeat(4, 218px); border-top: 1px solid var(--ice); border-left: 1px solid var(--ice); }
+.gallery li { padding: 14px 14px 10px; border-right: 1px solid var(--ice); border-bottom: 1px solid var(--ice); text-align: center; font-size: 15px; }
+.photo { display: block; height: 150px; margin-bottom: 8px; border: 1px solid var(--silver); background: linear-gradient(135deg, #fff, var(--ice)); }
 
 /* Footer */
 .footer { padding: 18px 20px; background: var(--ink); color: var(--silver); text-align: center; font-size: 14px; }

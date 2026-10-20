@@ -7,7 +7,7 @@ Next.js (App Router) frontend. Layout follows welcointernational.com; colours ar
 npm install
 npm run dev       # http://localhost:3000
 npm run build     # static export to out/
-npm run preview   # build, then write preview.html (single-file HTML/CSS of the home page)
+npm run preview   # build, then write preview.html + preview-products.html (plain HTML/CSS)
 ```
 
 - `app/site.js` — brand, menus, sidebar links and products in one place.

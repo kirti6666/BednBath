@@ -15,8 +15,8 @@ export const footerLinks = [...topLinks.slice(1), ...mainNav];
 // Inner pages rendered by app/[slug]; Products has its own page.
 export const pages = [...topLinks.slice(2), ...mainNav.slice(1), ...sideLinks, ...sideButtons, ...paymentLinks, ...links('Sign Up')];
 
-export const products = [
-  'Bed Sheets', 'Duvet Covers', 'Pillow Covers', 'Duvets', 'Pillows', 'Mattress Protectors', 'Blankets', 'Bed Spreads',
-  'Bath Towels', 'Hand Towels', 'Face Towels', 'Pool Towels', 'Health Club Towels', 'Bath Mats', 'Bathrobes',
-  'Bath Room Slippers', 'Polyester Shower Curtains',
+export const categories = [
+  { name: 'Bed Linen', products: ['Bed Sheets', 'Duvet Covers', 'Pillow Covers', 'Duvets', 'Pillows', 'Mattress Protectors', 'Blankets', 'Bed Spreads'] },
+  { name: 'Bath Linen', products: ['Bath Towels', 'Hand Towels', 'Face Towels', 'Pool Towels', 'Health Club Towels', 'Bath Mats', 'Bathrobes', 'Bath Room Slippers', 'Polyester Shower Curtains'] },
 ];
+export const products = categories.flatMap((c) => c.products);
