@@ -1,25 +1,18 @@
-import ProductGrid from './components/ProductGrid';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <>
-      <section className="signin">
-        <h2>Sign In</h2>
-        {/* shortcut: no handler yet, point action at the Node.js auth endpoint when it exists */}
-        <form method="post" action="/api/auth/login">
-          <label htmlFor="username">Username</label>
-          <input id="username" name="username" autoComplete="username" required />
-          <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="password" autoComplete="current-password" required />
-          <button type="submit" className="btn">Submit</button>
-        </form>
-        <a href="/sign-up">Sign Up</a>
-      </section>
-
-      <section>
-        <h2 className="section-title">Our Products</h2>
-        <ProductGrid />
-      </section>
-    </>
+    <section className="signin" aria-labelledby="signin-title">
+      <h2 id="signin-title">Sign In</h2>
+      {/* shortcut: posts straight to the Node.js API; add client-side handling when that endpoint exists */}
+      <form method="post" action="/api/auth/login">
+        <label htmlFor="username">Username</label>
+        <input id="username" name="username" autoComplete="username" required />
+        <label htmlFor="password">Password</label>
+        <input id="password" name="password" type="password" autoComplete="current-password" required />
+        <button type="submit" className="btn submit">Submit</button>
+      </form>
+      <Link href="/sign-up">Sign Up</Link>
+    </section>
   );
 }

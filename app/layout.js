@@ -2,11 +2,14 @@ import './globals.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
-import { brand } from './data';
+import { brand } from './site';
 
-export const metadata = { title: `${brand.name} — Hotel Linen`, description: 'Bed linen, towels and blankets supplied in bulk.' };
+export const metadata = {
+  title: `${brand.name} | Hotel Linen Supplier`,
+  description: 'Bed linen, towels and blankets for hotels and resorts, supplied in bulk.',
+};
 
-// Fixed-width page like the reference: phones and tablets zoom the desktop layout out to fit.
+// One fixed 1260px layout on every device, like the reference: phones and tablets zoom it out to fit the screen.
 export const viewport = { width: 1260, initialScale: undefined };
 
 export default function RootLayout({ children }) {
@@ -14,7 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap"
+        />
       </head>
       <body>
         <div className="page">

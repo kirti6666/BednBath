@@ -1,14 +1,14 @@
 {
-  "name": "bednbath",
+  "name": "bednbath-frontend",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "preview": "next build && node scripts/preview.mjs"
   },
   "dependencies": {
-    "next": "15.5.28",
-    "react": "19.1.10",
-    "react-dom": "19.1.10"
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   }
 }

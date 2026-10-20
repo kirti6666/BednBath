@@ -1,62 +1,44 @@
 import Link from 'next/link';
-import { brand, topLinks, mainNav, products } from '../data';
+import MainNav from './MainNav';
+import Banner from './Banner';
+import { brand, badge, topLinks, products } from '../site';
 
 export default function Header() {
   return (
-    <header className="header">
-      <nav className="top-links" aria-label="Account">
-        {topLinks.map((l, i) => (
-          <span key={l.label}>
-            {i > 0 && <span className="sep">|</span>}
-            <Link href={l.href}>{l.label}</Link>
-          </span>
-        ))}
-      </nav>
+    <header>
+      <ul className="top-links">
+        {topLinks.map((l) => <li key={l.label}><Link href={l.href}>{l.label}</Link></li>)}
+      </ul>
 
       <div className="brand-row">
         <Link href="/" className="logo">
-          <span className="logo-mark" aria-hidden="true">B</span>
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="3" />
+            <circle cx="40" cy="40" r="29" fill="none" stroke="currentColor" strokeWidth="1" />
+            <text x="40" y="53" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontWeight="600" fontSize="38" fill="currentColor">B</text>
+          </svg>
           <span>
             <span className="logo-name">{brand.name}</span>
             <span className="logo-tag">{brand.tagline}</span>
           </span>
         </Link>
-        <div className="badge">
-          The first hotel linen supplier to get
-          <strong>ISO 9001 Certification</strong>
-        </div>
+        <p className="badge">{badge.line}<strong>{badge.strong}</strong></p>
       </div>
 
-      <div className="main-nav">
-        <nav aria-label="Main">
-          {mainNav.map((l, i) => (
-            <Link key={l.label} href={l.href} className={i === 0 ? 'active' : ''}>{l.label}</Link>
-          ))}
-        </nav>
+      <div className="nav-row">
+        <MainNav />
         <form className="search" action="/products" role="search">
           <input name="q" placeholder="search..." aria-label="Search products" />
           <button type="submit">Go</button>
         </form>
       </div>
 
-      <section className="banner">
-        <div className="banner-text">
-          <p className="eyebrow">For hotels &amp; resorts</p>
-          <h1>Linen that makes every stay feel five-star.</h1>
-          <p>Bed linen, towels and blankets supplied in bulk.</p>
-          <div className="banner-cta">
-            <Link href="/enquiry-form" className="btn">Request a bulk quote</Link>
-            <Link href="/products" className="link">View collections</Link>
-          </div>
-        </div>
-      </section>
+      <Banner />
 
       <div className="ticker" aria-label="Product range">
-        {/* Rendered twice so the CSS loop is seamless. */}
+        {/* Two copies so the scroll loops seamlessly. */}
         <div className="ticker-track">
-          {[0, 1].map((k) => (
-            <span key={k} aria-hidden={k === 1}>{products.join('  -  ')}  -  </span>
-          ))}
+          {[0, 1].map((k) => <span key={k} aria-hidden={k === 1 || undefined}>{products.join(' - ')} - </span>)}
         </div>
       </div>
     </header>
