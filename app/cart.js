@@ -21,4 +21,6 @@ export const load = () => {
 };
 export const save = (lines) => {
   try { localStorage.setItem(KEY, JSON.stringify(lines)); } catch { /* storage blocked: cart lasts for this page only */ }
+  // Tell the header's cart count; it stays mounted across page changes, so it won't reload on its own.
+  if (typeof window !== 'undefined') window.dispatchEvent(new Event('cart-change'));
 };

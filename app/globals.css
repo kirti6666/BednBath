@@ -54,10 +54,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .btn:hover { background: var(--cobalt-dark); text-decoration: none; }
 
 /* Selling points under the banner */
-.highlights { display: grid; grid-template-columns: repeat(4, 1fr); border-block: 1px solid var(--silver); background: var(--ice); }
-.highlights li { padding: 12px 24px; font-size: 14px; color: var(--muted); }
-.highlights li + li { border-left: 1px solid var(--silver); }
-.highlights strong { display: block; color: var(--cobalt); font: 600 19px var(--serif); }
+.highlights { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 3px solid var(--cobalt); border-bottom: 1px solid var(--silver); background: #fff; }
+.highlights li { display: flex; align-items: center; gap: 14px; padding: 16px 22px; font-size: 13.5px; line-height: 1.4; color: var(--muted); }
+.highlights li + li { border-left: 1px solid var(--ice); }
+.highlights strong { display: block; margin-bottom: 2px; color: var(--ink); font: 600 17px var(--sans); }
+.hl-icon { width: 52px; height: 52px; flex: none; padding: 6px; border-radius: 12px; background: var(--ice); }
 
 /* Body: left sidebar + content */
 .body { display: flex; }

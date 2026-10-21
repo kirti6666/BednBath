@@ -52,6 +52,6 @@ export const strengths = [
 export const highlights = [
   ['Since 2010', 'Continuous hotel-linen production'],
   ['4★ & 5★ hotels', 'Supplied direct, to hotel standards'],
-  ['Export ready', 'Packing and documentation worldwide'],
-  ['Made to order', 'Sizes, colours, embroidery and logos'],
+  ['Export ready', 'Packing and papers for any port'],
+  ['Made to order', 'Sizes, colours and logos'],
 ];
