@@ -12,15 +12,7 @@ export default function Header() {
 
       <div className="brand-row">
         <Link href="/" className="logo">
-          <svg viewBox="0 0 80 80" aria-hidden="true">
-            <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="3" />
-            <circle cx="40" cy="40" r="29" fill="none" stroke="currentColor" strokeWidth="1" />
-            <text x="40" y="53" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontWeight="600" fontSize="30" fill="currentColor">LL</text>
-          </svg>
-          <span>
-            <span className="logo-name">{brand.name}</span>
-            <span className="logo-tag">{brand.line}</span>
-          </span>
+          <img src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="360" height="116" />
         </Link>
         <p className="badge">{badge.line}<strong>{badge.strong}</strong></p>
       </div>

@@ -28,3 +28,5 @@ export const categories = [
     products: ['Table Cloths', 'Napkins', 'Runners', 'Chair Covers', 'Skirting'] },
 ];
 export const products = categories.flatMap((c) => c.products);
+// shortcut: photos for the products we have pictures of; the rest show a placeholder.
+export const photos = { 'Bedsheets': '/images/bedsheets.jpg', 'Duvet Covers': '/images/duvet-covers.jpg', 'Bath Towels': '/images/bath-towels.jpg' };

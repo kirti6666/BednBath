@@ -27,11 +27,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .top-links li + li::before { content: '|'; margin: 0 7px; color: var(--silver); }
 
 .brand-row { display: flex; align-items: center; justify-content: space-between; padding: 4px 20px 20px; }
-.logo { display: flex; align-items: center; gap: 14px; color: var(--ink); }
-.logo:hover { text-decoration: none; }
-.logo svg { width: 78px; height: 78px; color: var(--cobalt); }
-.logo-name { display: block; font: 600 42px/1 var(--serif); letter-spacing: .1em; text-transform: uppercase; }
-.logo-tag { display: block; margin-top: 6px; text-align: right; color: var(--muted); font-size: 17px; letter-spacing: .3em; text-transform: uppercase; }
+.logo img { display: block; }
 .badge { width: 300px; margin: 14px 0 0; padding: 7px 12px; background: var(--ice); border: 1px solid var(--silver); border-radius: 3px; text-align: center; font-size: 14px; line-height: 1.4; }
 .badge strong { display: block; font-size: 16px; font-weight: 600; }
 
@@ -43,11 +39,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .search input { width: 180px; height: 24px; padding: 0 6px; border: 1px solid var(--silver); font: 14px var(--sans); }
 .search button { height: 20px; padding: 0 14px; border: 0; background: var(--cobalt); color: #fff; font: 600 12px var(--sans); cursor: pointer; }
 
-.banner { display: flex; align-items: center; justify-content: space-between; height: 200px; padding: 0 40px 0 56px; overflow: hidden;
-  background: linear-gradient(100deg, var(--porcelain) 0%, var(--ice) 55%, #d3dcea 100%); }
-.banner svg { width: 500px; height: 200px; flex: none; }
+/* Photo fills the right side and fades into the text on the left. */
+.banner { position: relative; display: flex; align-items: center; height: 240px; padding: 0 56px; overflow: hidden; background: var(--porcelain); }
+.banner > div { position: relative; z-index: 2; max-width: 500px; }
+.banner::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 58%; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, var(--porcelain) 69%, rgb(250 250 247 / 0)); }  /* solid up to where the photo starts (40% of the banner) */
+.banner img { position: absolute; top: 0; right: 0; width: 60%; height: 100%; object-fit: cover; object-position: 60% 62%; }
 .eyebrow { margin: 0; color: var(--cobalt); font-size: 13px; letter-spacing: .2em; text-transform: uppercase; }
-.banner h1 { margin: 6px 0 4px; font: 600 40px/1.1 var(--serif); }
+.banner h1 { margin: 6px 0 4px; font: 600 40px/1.1 var(--serif); text-wrap: balance; }
 .banner p:not(.eyebrow) { margin: 0; color: var(--muted); }
 .cta { display: flex; align-items: center; gap: 22px; margin-top: 14px; }
 .cta .link { color: var(--ink); text-decoration: underline; }
@@ -93,7 +92,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .category h2, .prose h2 { margin: 0 0 12px; color: var(--cobalt); font: 600 22px var(--sans); }
 .gallery { display: grid; grid-template-columns: repeat(5, 182px); width: max-content; border-top: 1px solid var(--ice); border-left: 1px solid var(--ice); }
 .gallery li { padding: 14px 14px 10px; border-right: 1px solid var(--ice); border-bottom: 1px solid var(--ice); text-align: center; font-size: 15px; }
-.photo { display: block; height: 130px; margin-bottom: 8px; border: 1px solid var(--silver); background: linear-gradient(135deg, #fff, var(--ice)); }
+.photo { display: block; width: 100%; height: 130px; object-fit: cover; margin-bottom: 8px; border: 1px solid var(--silver); background: linear-gradient(135deg, #fff, var(--ice)); }
 
 /* Footer */
 .footer { padding: 18px 20px; background: var(--ink); color: var(--silver); text-align: center; font-size: 14px; }

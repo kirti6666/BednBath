@@ -17,6 +17,8 @@ for (const [route, file] of Object.entries(pages)) {
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>|<link rel="(?:preload|modulepreload)"[^>]*>/g, '')
     // Pages in the preview link to each other; links to other pages go nowhere.
     .replace(/href="(\/(?!\/)[^"]*)"/g, (_, href) => `href="${pages[href] ?? '#'}"`)
+    // Inline images so each preview file stands alone.
+    .replace(/src="\/images\/([^"]+)"/g, (_, f) => `src="data:image/${f.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(`public/images/${f}`).toString('base64')}"`)
     .replace('</body>', `${fit}</body>`);
 
   if (!html.includes('class="page"') || html.includes('/_next/')) throw new Error(`${file} still references the Next.js build`);
