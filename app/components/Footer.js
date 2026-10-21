@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CardLogos from './CardLogos';
 import { brand, categories, footerColumns } from '../site';
 
 export default function Footer() {
@@ -19,11 +20,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} {brand.name} {brand.line}. Manufacturer &amp; exporter: {brand.maker}.</p>
-        <p className="cards">
-          We accept
-          <span className="visa" role="img" aria-label="Visa">VISA</span>
-          <span className="mastercard" role="img" aria-label="Mastercard"><i /><i /></span>
-        </p>
+        <p className="accept">We accept <CardLogos /></p>
       </div>
     </footer>
   );
