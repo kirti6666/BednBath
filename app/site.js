@@ -50,8 +50,8 @@ export const strengths = [
 
 // Selling points shown under the banner.
 export const highlights = [
-  ['Since 2010', 'Continuous hotel-linen production'],
-  ['4★ & 5★ hotels', 'Supplied direct, to hotel standards'],
-  ['Export ready', 'Packing and papers for any port'],
-  ['Made to order', 'Sizes, colours and logos'],
+  ['Since 2010', 'In continuous production'],
+  ['4 & 5 Star', 'Hotel-grade standards'],
+  ['Worldwide', 'Export packing & documents'],
+  ['Bespoke', 'Sizes, colours & logos'],
 ];

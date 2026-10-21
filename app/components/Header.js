@@ -2,7 +2,6 @@ import Link from 'next/link';
 import MainNav from './MainNav';
 import Banner from './Banner';
 import CartLink from './CartLink';
-import { highlightIcons } from './HighlightIcons';
 import { brand, tagline, utilityLinks, highlights } from '../site';
 
 export default function Header() {
@@ -30,10 +29,7 @@ export default function Header() {
       <Banner />
 
       <ul className="highlights">
-        {highlights.map(([strong, text]) => {
-          const Icon = highlightIcons[strong];
-          return <li key={strong}><Icon /><span><strong>{strong}</strong>{text}</span></li>;
-        })}
+        {highlights.map(([strong, text]) => <li key={strong}><strong>{strong}</strong>{text}</li>)}
       </ul>
     </header>
   );
