@@ -15,7 +15,7 @@ export default function Products() {
         {c.products.map((p) => (
           <li key={p}>
             {photos[p] ? <img className="photo" src={photos[p]} alt="" width="400" height="300" /> : <span className="photo" aria-hidden="true" />}
-            {p}
+            <span className="name">{p}</span>
           </li>
         ))}
       </ul>

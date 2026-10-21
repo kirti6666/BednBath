@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 
 const routes = ['/', '/products', '/company-profile', '/price-list', '/products/400-tc-cotton-bed-sheet',
   '/enquiry-form', '/contact-us', '/shopping-cart', '/payment-options', '/terms-conditions',
-  '/consignment-tracking', '/to-know-bed-linen-size', '/par-stock-calculation', '/conversion-table', '/feedback'];
+  '/consignment-tracking', '/size-guide', '/sign-in', '/par-stock-calculation', '/conversion-table', '/feedback'];
 const pages = Object.fromEntries(routes.map((r) => [r, r === '/' ? 'preview.html' : `preview${r.replaceAll('/', '-')}.html`]));
 
 const fit = `<script>

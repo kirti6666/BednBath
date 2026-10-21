@@ -1,38 +1,36 @@
 import Link from 'next/link';
 import MainNav from './MainNav';
 import Banner from './Banner';
-import { brand, badge, topLinks, products } from '../site';
+import CartLink from './CartLink';
+import { brand, tagline, utilityLinks, highlights } from '../site';
 
 export default function Header() {
   return (
     <header>
-      <ul className="top-links">
-        {topLinks.map((l) => <li key={l.label}><Link href={l.href}>{l.label}</Link></li>)}
-      </ul>
-
-      <div className="brand-row">
-        <Link href="/" className="logo">
-          <img src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="360" height="116" />
-        </Link>
-        <p className="badge">{badge.line}<strong>{badge.strong}</strong></p>
+      <div className="utility">
+        <p>{tagline}</p>
+        <form className="search" action="/products" role="search">
+          <input name="q" placeholder="Search products" aria-label="Search products" />
+          <button type="submit">Search</button>
+        </form>
+        <ul>
+          {utilityLinks.map((l) => <li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}
+          <li><CartLink /></li>
+        </ul>
       </div>
 
-      <div className="nav-row">
+      <div className="masthead">
+        <Link href="/" className="logo">
+          <img src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="270" height="87" />
+        </Link>
         <MainNav />
-        <form className="search" action="/products" role="search">
-          <input name="q" placeholder="search..." aria-label="Search products" />
-          <button type="submit">Go</button>
-        </form>
       </div>
 
       <Banner />
 
-      <div className="ticker" aria-label="Product range">
-        {/* Two copies so the scroll loops seamlessly. */}
-        <div className="ticker-track">
-          {[0, 1].map((k) => <span key={k} aria-hidden={k === 1 || undefined}>{products.join(' - ')} - </span>)}
-        </div>
-      </div>
+      <ul className="highlights">
+        {highlights.map(([strong, text]) => <li key={strong}><strong>{strong}</strong>{text}</li>)}
+      </ul>
     </header>
   );
 }

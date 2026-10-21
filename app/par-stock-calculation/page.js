@@ -24,7 +24,7 @@ export default function ParStockPage() {
       <ParStock />
       <p>
         Ready to order? Check the <Link href="/price-list">price list</Link> and <Link href="/enquiry-form">send an enquiry</Link> with
-        your quantities, or see the <Link href="/to-know-bed-linen-size">size guide</Link>.
+        your quantities, or see the <Link href="/size-guide">size guide</Link>.
       </p>
     </article>
   );
