@@ -6,7 +6,7 @@ import { brand } from './site';
 
 export const metadata = {
   title: `${brand.name} | Hotel Linen Supplier`,
-  description: 'Bed linen, towels and blankets for hotels and resorts, supplied in bulk.',
+  description: 'Hotel linen manufacturer and exporter since 2010: bed, bath and banquet linen for 4- and 5-star hotels.',
 };
 
 // One fixed 1260px layout on every device, like the reference: phones and tablets zoom it out to fit the screen.

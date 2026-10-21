@@ -87,15 +87,23 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Inner pages */
 .title { margin: 0 0 18px; padding-bottom: 6px; border-bottom: 1px solid var(--silver); font: 600 34px var(--serif); }
-/* Product gallery: bordered 4-column photo grid like the reference's Bed Linen page */
+/* Product gallery: bordered photo grid like the reference's Bed Linen page */
 .category + .category { margin-top: 28px; }
-.category h2 { margin: 0 0 12px; color: var(--cobalt); font: 600 22px var(--sans); }
-.gallery { display: grid; grid-template-columns: repeat(4, 218px); border-top: 1px solid var(--ice); border-left: 1px solid var(--ice); }
+.category p { margin: -6px 0 12px; }
+.category h2, .prose h2 { margin: 0 0 12px; color: var(--cobalt); font: 600 22px var(--sans); }
+.gallery { display: grid; grid-template-columns: repeat(5, 182px); width: max-content; border-top: 1px solid var(--ice); border-left: 1px solid var(--ice); }
 .gallery li { padding: 14px 14px 10px; border-right: 1px solid var(--ice); border-bottom: 1px solid var(--ice); text-align: center; font-size: 15px; }
-.photo { display: block; height: 150px; margin-bottom: 8px; border: 1px solid var(--silver); background: linear-gradient(135deg, #fff, var(--ice)); }
+.photo { display: block; height: 130px; margin-bottom: 8px; border: 1px solid var(--silver); background: linear-gradient(135deg, #fff, var(--ice)); }
 
 /* Footer */
 .footer { padding: 18px 20px; background: var(--ink); color: var(--silver); text-align: center; font-size: 14px; }
 .footer ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; margin-bottom: 8px; }
 .footer a { color: var(--porcelain); }
 .footer p { margin: 0; }
+
+/* Company profile */
+.prose { max-width: 760px; }
+.prose h2 { margin: 26px 0 8px; }
+.prose p { margin: 0 0 10px; }
+.prose ul { margin: 0 0 10px; padding-left: 22px; list-style: disc; }
+.prose li { margin-bottom: 4px; }

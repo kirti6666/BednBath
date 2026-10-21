@@ -1,8 +1,7 @@
-// Writes preview.html (home) and preview-products.html: exported pages as plain HTML/CSS (CSS inlined, Next.js scripts removed).
+// Writes preview.html (home), preview-products.html and preview-company-profile.html: exported pages as plain HTML/CSS (CSS inlined, Next.js scripts removed).
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const pages = { '/': 'preview.html', '/products': 'preview-products.html' };
-const sources = { '/': 'out/index.html', '/products': 'out/products.html' };
+const pages = { '/': 'preview.html', '/products': 'preview-products.html', '/company-profile': 'preview-company-profile.html' };
 
 const fit = `<script>
 // Frames (like the claude.ai preview) ignore the viewport meta, so zoom the fixed-width page to fit there too.
@@ -12,10 +11,10 @@ document.addEventListener('submit', (e) => e.preventDefault());
 </script>`;
 
 for (const [route, file] of Object.entries(pages)) {
-  const html = readFileSync(sources[route], 'utf8')
+  const html = readFileSync(route === '/' ? 'out/index.html' : `out${route}.html`, 'utf8')
     .replace(/<link rel="stylesheet" href="(\/_next\/[^"]+)"[^>]*>/g, (_, href) => `<style>${readFileSync(`out${href}`, 'utf8')}</style>`)
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>|<link rel="(?:preload|modulepreload)"[^>]*>/g, '')
-    // Home and Products link to each other's preview file; other pages aren't in the preview.
+    // Pages in the preview link to each other; links to other pages go nowhere.
     .replace(/href="(\/(?!\/)[^"]*)"/g, (_, href) => `href="${pages[href] ?? '#'}"`)
     .replace('</body>', `${fit}</body>`);
 

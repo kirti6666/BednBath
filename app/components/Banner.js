@@ -10,7 +10,7 @@ export default function Banner() {
       <div>
         <p className="eyebrow">For hotels &amp; resorts</p>
         <h1>Linen that makes every stay feel five-star.</h1>
-        <p>Bed linen, towels and blankets supplied in bulk.</p>
+        <p>Bed, bath and banquet linen, made since 2010 and exported worldwide.</p>
         <div className="cta">
           <Link href="/enquiry-form" className="btn">Request a bulk quote</Link>
           <Link href="/products" className="link">View collections</Link>
