@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { sideLinks, sideButtons, paymentLinks } from '../site';
+import { sideLinks, sideButtons, paymentLinks, termsLinks } from '../site';
 
 const icons = {
   'Price List': <path d="M8 7h9M8 12h9M8 17h9M4.5 7h.01M4.5 12h.01M4.5 17h.01" />,
@@ -28,6 +28,7 @@ export default function Sidebar() {
         <span className="visa" role="img" aria-label="Visa">VISA</span>
         <span className="mastercard" role="img" aria-label="Mastercard"><i /><i /></span>
       </div>
+      <List items={termsLinks} />
     </aside>
   );
 }

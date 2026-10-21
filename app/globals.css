@@ -70,7 +70,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .side-btn:hover { background: var(--cobalt-dark); text-decoration: none; }
 .side-icon { position: absolute; left: -2px; top: 50%; translate: 0 -50%; display: grid; place-items: center; width: 48px; height: 48px; border: 3px solid var(--porcelain); border-radius: 50%; background: var(--ink); }
 .side-icon svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.cards { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 24px; }
+.cards { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 24px 0 14px; }
 .cards > span { display: flex; align-items: center; height: 46px; padding: 0 12px; background: #fff; border: 1px solid var(--silver); border-radius: 4px; }
 .visa { color: #1a1f71; font: italic 800 26px Arial, sans-serif; letter-spacing: -.02em; }
 .mastercard i { width: 30px; height: 30px; border-radius: 50%; background: #eb001b; }

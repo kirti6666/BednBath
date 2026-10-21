@@ -10,10 +10,11 @@ export const mainNav = links('Products', 'Clients', 'Mfg. Facilities', 'Attracti
 export const sideLinks = links('Consignment tracking', 'To know bed linen size', 'Par stock calculation', 'Conversion table', 'Feedback');
 export const sideButtons = links('Price List', 'Shopping Cart', 'Payment Options');
 export const paymentLinks = links('Online bank transfer', 'Direct deposit');
+export const termsLinks = links('Terms & Conditions');
 export const footerLinks = [...topLinks.slice(1), ...mainNav];
 
 // Inner pages rendered by app/[slug]; Products has its own page.
-export const pages = [...topLinks.slice(2), ...mainNav.slice(1), ...sideLinks, ...sideButtons, ...paymentLinks, ...links('Sign Up')];
+export const pages = [...topLinks.slice(2), ...mainNav.slice(1), ...sideLinks, ...sideButtons, ...paymentLinks, ...termsLinks, ...links('Sign Up')];
 
 export const categories = [
   { name: 'Bed Linen', products: ['Bed Sheets', 'Duvet Covers', 'Pillow Covers', 'Duvets', 'Pillows', 'Mattress Protectors', 'Blankets', 'Bed Spreads'] },
