@@ -12,6 +12,16 @@ export const metadata = {
 // One fixed 1260px layout on every device, like the reference: phones and tablets zoom it out to fit the screen.
 export const viewport = { width: 1260, initialScale: undefined };
 
+// Desktop browsers ignore the viewport meta, so a window narrower than 1260px would cut the page off.
+// Zoom the page to the window width instead (never above 100%), so every screen shows the whole layout.
+const fitToWindow = `(function () {
+  var s = document.createElement('style');
+  document.head.appendChild(s);
+  function fit() { s.textContent = '.page{zoom:' + Math.min(1, document.documentElement.clientWidth / 1260) + '}'; }
+  fit();
+  addEventListener('resize', fit);
+})();`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -22,6 +32,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap"
         />
+        <script dangerouslySetInnerHTML={{ __html: fitToWindow }} />
       </head>
       <body>
         <div className="page">

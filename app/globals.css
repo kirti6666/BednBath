@@ -13,6 +13,8 @@
 }
 
 * { box-sizing: border-box; }
+/* Phones must show an exact scaled copy of the desktop page: stop mobile browsers enlarging text on their own. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { margin: 0; background: #d9e0ea; color: var(--ink); font: 16px/1.5 var(--sans); }
 a { color: var(--cobalt); text-decoration: none; }
 a:hover { text-decoration: underline; }
