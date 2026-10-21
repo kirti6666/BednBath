@@ -28,3 +28,5 @@ Image.open(f'{src}/8.jpg').convert('RGB').resize((1200, 900), Image.LANCZOS).sav
 photo('7.jpg', 'bedsheets.jpg', (400, 300))
 photo('9.jpg', 'duvet-covers.jpg', (400, 300))
 photo('10.jpg', 'bath-towels.jpg', (400, 300))
+# Pillowcases: close-up of the right-hand pillows in the gold-runner bed photo.
+Image.open(f'{src}/7.jpg').convert('RGB').crop((740, 200, 1130, 492)).resize((400, 300), Image.LANCZOS).save(f'{out}/pillowcases.jpg', quality=80, optimize=True, progressive=True)
