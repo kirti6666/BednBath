@@ -1,20 +1,15 @@
 import Link from 'next/link';
 import CardLogos from '../components/CardLogos';
+import { BankIcon, CashIcon, CardIcon, ShieldIcon } from '../components/PayIcons';
 
 export const metadata = { title: 'Payment Options' };
 
-const Icon = ({ d }) => <svg className="pay-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={d} /></svg>;
-const bank = 'M3 9.5 12 4l9 5.5M5 10v7M9.5 10v7M14.5 10v7M19 10v7M3 20h18';
-const deposit = 'M3 7h18v10H3zM12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M6.5 12h.01M17.5 12h.01';
-const card = 'M3 6.5h18v11H3zM3 10h18M6.5 14.5h4';
-const shield = 'M12 3 20 6v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6zM8.5 12l2.5 2.5 4.5-4.5';
-
 const methods = [
-  { id: 'online-bank-transfer', title: 'Online bank transfer', icon: <Icon d={bank} />,
+  { id: 'online-bank-transfer', title: 'Online bank transfer', icon: <BankIcon />,
     text: 'Pay by international wire transfer (SWIFT) or by bank transfer within India. Our bank details are sent with the proforma invoice. Please quote the invoice number as the payment reference.' },
-  { id: 'direct-deposit', title: 'Direct deposit', icon: <Icon d={deposit} />,
+  { id: 'direct-deposit', title: 'Direct deposit', icon: <CashIcon />,
     text: 'Deposit the invoice amount directly into our bank account at a branch, then email us the deposit slip with your invoice number so we can match the payment.' },
-  { id: 'cards', title: 'Credit and debit cards', icon: <Icon d={card} />, tile: <CardLogos large />, logos: true,
+  { id: 'cards', title: 'Credit and debit cards', icon: <CardIcon />, tile: <CardLogos large />, logos: true,
     text: 'We accept Visa and Mastercard. Ask for a card payment link when you confirm your order.' },
 ];
 
@@ -44,7 +39,7 @@ export default function PaymentOptions() {
       ))}
 
       <section className="pay-method safe">
-        <Icon d={shield} />
+        <ShieldIcon />
         <div>
           <h2>Stay safe</h2>
           <ul>
