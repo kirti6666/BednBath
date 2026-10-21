@@ -14,7 +14,7 @@ npm test          # cart and unit-conversion checks
 - `app/site.js` — brand, menus, sidebar links, products and product photos in one place.
 - `public/images/` — logo, banner and product photos (made web-ready by `scripts/prepare_images.py`).
 - `app/components/` — Header (utility bar with search and cart, logo + menu, banner, selling points), MainNav, Banner, Sidebar (grouped buyer links + quote box), Footer (link columns, cards accepted), Cart, AddToCart, CartLink, ParStock.
-- `app/page.js` — home (welcome, ranges, why buyers choose us). `app/sign-in/page.js` — trade sign in. `app/company-profile/page.js` — company overview. `app/price-list/page.js` — price tables from `app/price-list.json`. `app/products/page.js` — product gallery. `app/[slug]/page.js` — placeholder for every other link.
+- `app/page.js` — home (intro, ranges, how ordering works, why buyers choose us, quote call to action). `app/sign-in/page.js` — trade sign in. `app/company-profile/page.js` — company overview. `app/price-list/page.js` — price tables from `app/price-list.json`. `app/products/page.js` — product gallery. `app/[slug]/page.js` — placeholder for every other link.
 - Layout is a fixed page (drawn at 1260px, shown at 1000px) on every device, like the reference: the viewport meta makes phones and tablets zoom it out to fit, a small script in `app/layout.js` shows it 1000px wide on desktop (the reference's size) and zooms it to fit narrower windows, and `text-size-adjust` stops phones enlarging text.
 
 - Shopping cart: price-list prices add items (`app/components/AddToCart.js`), `app/components/Cart.js` shows them; cart logic and storage in `app/cart.js`.
