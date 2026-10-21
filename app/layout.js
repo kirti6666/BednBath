@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import { brand } from './site';
 
 export const metadata = {
-  title: `${brand.name} | Hotel Linen Supplier`,
+  title: `${brand.name} ${brand.line} | Hotel Linen Manufacturer & Exporter`,
   description: 'Hotel linen manufacturer and exporter since 2010: bed, bath and banquet linen for 4- and 5-star hotels.',
 };
 

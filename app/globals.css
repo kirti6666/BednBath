@@ -31,7 +31,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .logo:hover { text-decoration: none; }
 .logo svg { width: 78px; height: 78px; color: var(--cobalt); }
 .logo-name { display: block; font: 600 42px/1 var(--serif); letter-spacing: .1em; text-transform: uppercase; }
-.logo-tag { display: block; margin-top: 6px; text-align: right; color: var(--muted); font-size: 16px; letter-spacing: .03em; }
+.logo-tag { display: block; margin-top: 6px; text-align: right; color: var(--muted); font-size: 17px; letter-spacing: .3em; text-transform: uppercase; }
 .badge { width: 300px; margin: 14px 0 0; padding: 7px 12px; background: var(--ice); border: 1px solid var(--silver); border-radius: 3px; text-align: center; font-size: 14px; line-height: 1.4; }
 .badge strong { display: block; font-size: 16px; font-weight: 600; }
 
@@ -107,3 +107,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .prose p { margin: 0 0 10px; }
 .prose ul { margin: 0 0 10px; padding-left: 22px; list-style: disc; }
 .prose li { margin-bottom: 4px; }
+
+/* Price list and specification tables */
+.lead { margin: 0 0 18px; }
+.data { width: 100%; margin-bottom: 26px; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.data caption { padding-bottom: 6px; text-align: left; color: var(--cobalt); font: 600 18px var(--sans); }
+.data caption span { display: block; color: var(--muted); font-size: 13px; font-weight: 400; }
+.data th, .data td { padding: 4px 7px; border: 1px solid var(--silver); text-align: left; vertical-align: top; }
+.data thead th, .data tbody th { background: var(--ice); font-weight: 600; }
+.data td:not(:first-child) { white-space: nowrap; }
+.data .num { text-align: right; }
+.spec { font-size: 15px; }
+.spec tbody th { width: 230px; }

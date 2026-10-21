@@ -1,5 +1,5 @@
-// All menus, links and product names in one place. Brand name and tagline are placeholders to replace.
-export const brand = { name: 'BednBath', tagline: 'Crisp linen... Reliable supply...' };
+// All menus, links and product names in one place.
+export const brand = { name: 'Luxurious Life', line: 'Hotel Bed & Bath', maker: 'Sagar Traders, India' };
 export const badge = { line: 'Hotel linen manufacturer & exporter', strong: 'Since 2010' };
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -13,12 +13,15 @@ export const paymentLinks = links('Online bank transfer', 'Direct deposit');
 export const termsLinks = links('Terms & Conditions');
 export const footerLinks = [...topLinks.slice(1), ...mainNav];
 
-// Inner pages rendered by app/[slug]; Company Profile and Products have their own pages.
-export const pages = [...topLinks.slice(3), ...mainNav.slice(1), ...sideLinks, ...sideButtons, ...paymentLinks, ...termsLinks, ...links('Sign Up')];
+// Inner pages rendered by app/[slug]; these have their own folders under app/.
+const ownPages = ['/company-profile', '/products', '/price-list'];
+export const pages = [...topLinks.slice(2), ...mainNav, ...sideLinks, ...sideButtons, ...paymentLinks, ...termsLinks, ...links('Sign Up')]
+  .filter((p) => !ownPages.includes(p.href));
+export const specPage = '/products/400-tc-cotton-bed-sheet';
 
 export const categories = [
   { name: 'Bed Linen', note: 'High thread count (TC) cotton, poly cotton and luxury blends.',
-    products: ['Bedsheets', 'Duvet Covers', 'Pillowcases', 'Mattress Protectors', 'Bed Skirts'] },
+    products: ['Bedsheets', 'Duvet Covers', 'Pillowcases', 'Duvets & Comforters', 'Mattress Protectors', 'Bed Skirts'], spec: true },
   { name: 'Bath Linen', note: 'Soft, highly absorbent and durable hotel-quality towels.',
     products: ['Bath Towels', 'Hand Towels', 'Face Towels', 'Bath Mats', 'Bathrobes'] },
   { name: 'Banquet Linen', note: 'Stain-resistant, elegant fabrics for banquets and events.',

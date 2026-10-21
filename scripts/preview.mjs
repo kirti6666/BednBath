@@ -1,7 +1,8 @@
-// Writes preview.html (home), preview-products.html and preview-company-profile.html: exported pages as plain HTML/CSS (CSS inlined, Next.js scripts removed).
+// Writes preview.html (home) and preview-<page>.html for a few pages: exported pages as plain HTML/CSS (CSS inlined, Next.js scripts removed).
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const pages = { '/': 'preview.html', '/products': 'preview-products.html', '/company-profile': 'preview-company-profile.html' };
+const routes = ['/', '/products', '/company-profile', '/price-list', '/products/400-tc-cotton-bed-sheet'];
+const pages = Object.fromEntries(routes.map((r) => [r, r === '/' ? 'preview.html' : `preview${r.replaceAll('/', '-')}.html`]));
 
 const fit = `<script>
 // Frames (like the claude.ai preview) ignore the viewport meta, so zoom the fixed-width page to fit there too.

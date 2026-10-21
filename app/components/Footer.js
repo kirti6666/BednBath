@@ -7,7 +7,7 @@ export default function Footer() {
       <ul>
         {footerLinks.map((l) => <li key={l.label}><Link href={l.href}>{l.label}</Link></li>)}
       </ul>
-      <p>© {new Date().getFullYear()} {brand.name}. All rights reserved.</p>
+      <p>© {new Date().getFullYear()} {brand.name} {brand.line}. Manufacturer &amp; exporter: {brand.maker}. All rights reserved.</p>
     </footer>
   );
 }

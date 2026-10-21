@@ -15,11 +15,11 @@ export default function Header() {
           <svg viewBox="0 0 80 80" aria-hidden="true">
             <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="3" />
             <circle cx="40" cy="40" r="29" fill="none" stroke="currentColor" strokeWidth="1" />
-            <text x="40" y="53" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontWeight="600" fontSize="38" fill="currentColor">B</text>
+            <text x="40" y="53" textAnchor="middle" fontFamily="Cormorant Garamond, Georgia, serif" fontWeight="600" fontSize="30" fill="currentColor">LL</text>
           </svg>
           <span>
             <span className="logo-name">{brand.name}</span>
-            <span className="logo-tag">{brand.tagline}</span>
+            <span className="logo-tag">{brand.line}</span>
           </span>
         </Link>
         <p className="badge">{badge.line}<strong>{badge.strong}</strong></p>
