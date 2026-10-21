@@ -8,7 +8,7 @@ const pages = Object.fromEntries(routes.map((r) => [r, r === '/' ? 'preview.html
 
 const fit = `<script>
 // Frames (like the claude.ai preview) ignore the viewport meta, so zoom the fixed-width page to fit there too.
-const fit = () => (document.querySelector('.page').style.zoom = Math.min(1, innerWidth / 1260));
+const fit = () => (document.querySelector('.page').style.zoom = Math.min(1000, innerWidth) / 1261);
 fit(); addEventListener('resize', fit);
 document.addEventListener('submit', (e) => e.preventDefault());
 </script>`;

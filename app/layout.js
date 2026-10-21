@@ -9,15 +9,17 @@ export const metadata = {
   description: 'Hotel linen manufacturer and exporter since 2010: bed, bath and banquet linen for 4- and 5-star hotels.',
 };
 
-// One fixed 1260px layout on every device, like the reference: phones and tablets zoom it out to fit the screen.
-export const viewport = { width: 1260, initialScale: undefined };
+// One fixed layout on every device, like the reference. The page is drawn 1260px wide and shown 1000px wide,
+// the reference's width: phones and tablets get a 1000px viewport and zoom it out to fit the screen.
+export const viewport = { width: 1000, initialScale: undefined };
 
-// Desktop browsers ignore the viewport meta, so a window narrower than 1260px would cut the page off.
-// Zoom the page to the window width instead (never above 100%), so every screen shows the whole layout.
+// Desktop browsers ignore the viewport meta, so zoom the page to 1000px, or to the window when it is narrower,
+// so every screen shows the whole layout at the reference's proportions.
 const fitToWindow = `(function () {
   var s = document.createElement('style');
   document.head.appendChild(s);
-  function fit() { s.textContent = '.page{zoom:' + Math.min(1, document.documentElement.clientWidth / 1260) + '}'; }
+  // 1261 not 1260: one spare pixel so sub-pixel rounding on high-density phones never adds a sideways scroll.
+  function fit() { s.textContent = '.page{zoom:' + Math.min(1000, document.documentElement.clientWidth) / 1261 + '}'; }
   fit();
   addEventListener('resize', fit);
 })();`;

@@ -21,7 +21,7 @@ export default function Header() {
 
       <div className="masthead">
         <Link href="/" className="logo">
-          <img src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="270" height="87" />
+          <img src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="236" height="76" />
         </Link>
         <MainNav />
       </div>
