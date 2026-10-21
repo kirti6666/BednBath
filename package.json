@@ -1,10 +1,12 @@
 {
   "name": "bednbath-frontend",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "preview": "next build && node scripts/preview.mjs"
+    "preview": "next build && node scripts/preview.mjs",
+    "test": "node scripts/cart.test.mjs"
   },
   "dependencies": {
     "next": "16.4.2",

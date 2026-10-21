@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { categories } from '../site';
+import { categories, strengths } from '../site';
 
 export const metadata = { title: 'Company Profile' };
 
@@ -35,14 +35,7 @@ export default function CompanyProfile() {
       </p>
 
       <h2>Key Strengths for International Buyers</h2>
-      <List items={[
-        'Long-term production continuity since 2010',
-        'Experience serving demanding 4-star and 5-star hotel standards',
-        'Flexible production capacity for bulk orders as well as retail volumes',
-        'Export-ready packaging and documentation',
-        'Competitive pricing with consistent quality',
-        'Customization of sizes, colours, embroidery, logo and packaging to buyer requirements',
-      ]} />
+      <List items={strengths} />
 
       <h2>Markets We Serve</h2>
       <List items={[

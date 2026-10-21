@@ -1,7 +1,8 @@
 // Writes preview.html (home) and preview-<page>.html for a few pages: exported pages as plain HTML/CSS (CSS inlined, Next.js scripts removed).
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const routes = ['/', '/products', '/company-profile', '/price-list', '/products/400-tc-cotton-bed-sheet'];
+const routes = ['/', '/products', '/company-profile', '/price-list', '/products/400-tc-cotton-bed-sheet',
+  '/enquiry-form', '/contact-us', '/shopping-cart', '/payment-options', '/terms-conditions'];
 const pages = Object.fromEntries(routes.map((r) => [r, r === '/' ? 'preview.html' : `preview${r.replaceAll('/', '-')}.html`]));
 
 const fit = `<script>
@@ -16,7 +17,7 @@ for (const [route, file] of Object.entries(pages)) {
     .replace(/<link rel="stylesheet" href="(\/_next\/[^"]+)"[^>]*>/g, (_, href) => `<style>${readFileSync(`out${href}`, 'utf8')}</style>`)
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>|<link rel="(?:preload|modulepreload)"[^>]*>/g, '')
     // Pages in the preview link to each other; links to other pages go nowhere.
-    .replace(/href="(\/(?!\/)[^"]*)"/g, (_, href) => `href="${pages[href] ?? '#'}"`)
+    .replace(/href="(\/(?!\/)[^"#]*)(#[^"]*)?"/g, (_, path, hash = '') => `href="${pages[path] ? pages[path] + hash : '#'}"`)
     // Inline images so each preview file stands alone.
     .replace(/src="\/images\/([^"]+)"/g, (_, f) => `src="data:image/${f.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(`public/images/${f}`).toString('base64')}"`)
     .replace('</body>', `${fit}</body>`);

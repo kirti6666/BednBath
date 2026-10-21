@@ -8,6 +8,7 @@ npm install
 npm run dev       # http://localhost:3000
 npm run build     # static export to out/
 npm run preview   # build, then write preview*.html (plain HTML/CSS of the main pages)
+npm test          # cart logic checks
 ```
 
 - `app/site.js` — brand, menus, sidebar links, products and product photos in one place.
@@ -16,5 +17,7 @@ npm run preview   # build, then write preview*.html (plain HTML/CSS of the main 
 - `app/page.js` — home (Sign In box). `app/company-profile/page.js` — company overview. `app/price-list/page.js` — price tables from `app/price-list.json`. `app/products/page.js` — product gallery. `app/[slug]/page.js` — placeholder for every other link.
 - Layout is a fixed 1260px page on every device, like the reference: the viewport meta makes phones and tablets zoom it out to fit.
 
-The sign-in form posts to `/api/auth/login`, to be served by the Node.js backend. Remove `output: 'export'` in
+- Shopping cart: price-list prices add items (`app/components/AddToCart.js`), `app/components/Cart.js` shows them; cart logic and storage in `app/cart.js`.
+
+Forms post to the Node.js backend, still to be built: `/api/auth/login` (sign in), `/api/enquiries` (enquiry form), `/api/orders` (cart order request). Remove `output: 'export'` in
 `next.config.mjs` once pages need server rendering.
