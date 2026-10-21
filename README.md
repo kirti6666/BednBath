@@ -8,7 +8,7 @@ npm install
 npm run dev       # http://localhost:3000
 npm run build     # static export to out/
 npm run preview   # build, then write preview*.html (plain HTML/CSS of the main pages)
-npm test          # cart logic checks
+npm test          # cart and unit-conversion checks
 ```
 
 - `app/site.js` — brand, menus, sidebar links, products and product photos in one place.

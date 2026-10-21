@@ -17,7 +17,8 @@ export const termsLinks = links('Terms & Conditions');
 export const footerLinks = [...topLinks.slice(1), ...mainNav];
 
 // Inner pages rendered by app/[slug]; these have their own folders under app/.
-const ownPages = ['/company-profile', '/products', '/price-list', '/enquiry-form', '/contact-us', '/shopping-cart', '/payment-options', '/terms-conditions'];
+const ownPages = ['/company-profile', '/products', '/price-list', '/enquiry-form', '/contact-us', '/shopping-cart', '/payment-options', '/terms-conditions',
+  '/consignment-tracking', '/to-know-bed-linen-size', '/par-stock-calculation', '/conversion-table', '/feedback'];
 export const pages = [...topLinks.slice(2), ...mainNav, ...sideLinks, ...sideButtons, ...termsLinks, ...links('Sign Up')]
   .filter((p) => !ownPages.includes(p.href));
 export const specPage = '/products/400-tc-cotton-bed-sheet';
