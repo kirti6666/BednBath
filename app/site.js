@@ -51,7 +51,7 @@ export const strengths = [
 // Selling points shown under the banner.
 export const highlights = [
   ['Since 2010', 'In continuous production'],
-  ['Luxury Hotels', 'Trusted by premium properties'],
+  ['Hospitality Grade', 'For premium hotels & resorts'],
   ['Worldwide', 'Export packing & documents'],
   ['Bespoke', 'Sizes, colours & logos'],
 ];
