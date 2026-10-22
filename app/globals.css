@@ -64,12 +64,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Body: left sidebar + content */
 .body { display: flex; }
 .sidebar { width: 264px; flex: none; padding: 24px 0 32px 24px; }
-.side-card { margin-bottom: 18px; padding: 14px 16px; border: 1px solid var(--silver); border-radius: 6px; background: #fff; }
-.side-card h2 { margin: 0 0 6px; color: var(--muted); font: 600 14px var(--sans); letter-spacing: .14em; text-transform: uppercase; }
-.side-card a { display: block; margin: 0 -8px; padding: 5px 8px; border-radius: 4px; color: var(--ink); font-size: 15px; }
-.side-card a:hover { background: var(--ice); color: var(--cobalt); text-decoration: none; }
-.side-card.quote { border: 0; background: var(--cobalt); color: #e6ecf5; }
-.side-card.quote h2 { color: #fff; font: 600 22px var(--serif); letter-spacing: 0; text-transform: none; }
+.side-card { margin-bottom: 18px; overflow: hidden; border: 1px solid var(--silver); border-radius: 4px; background: #fff; }
+.side-card h2 { margin: 0; padding: 10px 16px; background: var(--ink); color: var(--porcelain); font: 600 14px var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+.side-card li + li { border-top: 1px solid var(--ice); }
+.side-card li a { display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 13px; border-left: 3px solid transparent; color: var(--ink); font-size: 16px; }
+.side-card li a::after { content: '›'; margin-left: auto; color: var(--silver); font-size: 20px; line-height: 1; }
+.side-card li a svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--cobalt); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.side-card li a:hover { background: var(--ice); color: var(--cobalt); text-decoration: none; }
+.side-card li a:hover::after { color: var(--cobalt); }
+.side-card li a[aria-current] { border-left-color: var(--cobalt); background: var(--ice); color: var(--cobalt); font-weight: 600; }
+.side-card.quote { padding: 16px; border: 0; background: var(--cobalt); color: #e6ecf5; }
+.side-card.quote h2 { margin: 0 0 6px; padding: 0; background: none; color: #fff; font: 600 22px var(--serif); letter-spacing: 0; text-transform: none; }
 .side-card.quote p { margin: 0 0 12px; font-size: 14px; }
 .side-card.quote .btn { margin: 0; padding: 8px 18px; background: var(--porcelain); color: var(--cobalt); }
 .side-card.quote .btn:hover { background: #fff; }
@@ -91,6 +96,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .title { margin: 0 0 18px; padding-bottom: 6px; border-bottom: 1px solid var(--silver); font: 600 34px var(--serif); }
 /* Product gallery: one card per product */
 .category + .category { margin-top: 28px; }
+.category h1 { margin: 0 0 12px; color: var(--ink); font: 600 34px var(--serif); }
+.range-tabs { display: flex; gap: 6px; margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid var(--silver); }
+.range-tabs a { padding: 6px 14px; border: 1px solid var(--silver); border-radius: 999px; color: var(--ink); font-size: 15px; }
+.range-tabs a:hover { border-color: var(--cobalt); color: var(--cobalt); text-decoration: none; }
+.range-tabs a[aria-current] { border-color: var(--cobalt); background: var(--cobalt); color: #fff; }
 .category p { margin: -6px 0 12px; }
 .category h2, .prose h2 { margin: 0 0 12px; color: var(--cobalt); font: 600 22px var(--sans); }
 .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }

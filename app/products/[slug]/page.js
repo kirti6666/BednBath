@@ -1,30 +1,41 @@
 import Link from 'next/link';
 import Gallery from '../../components/Gallery';
 import ProductBuy from '../../components/ProductBuy';
+import { RangeGrid, RangeTabs } from '../../components/RangeGrid';
 import { allProducts, variantsFor } from '../../catalog';
-import { photos, rangeDetails, specPage, productHref } from '../../site';
+import { categories, photos, rangeDetails, specPage, productHref, rangeHref, slug } from '../../site';
 
 export const dynamicParams = false;
-export const generateStaticParams = () => allProducts.map((p) => ({ slug: p.slug }));
+// /products/<slug> is either a range page (bed-linen, bath-linen, banquet-linen) or a product page.
+export const generateStaticParams = () => [...categories.map((c) => ({ slug: slug(c.name) })), ...allProducts.map((p) => ({ slug: p.slug }))];
 
 const find = async (params) => {
-  const { slug } = await params;
-  return allProducts.find((p) => p.slug === slug);
+  const { slug: s } = await params;
+  return { range: categories.find((c) => slug(c.name) === s), product: allProducts.find((p) => p.slug === s) };
 };
 
 export async function generateMetadata({ params }) {
-  return { title: (await find(params)).name };
+  const { range, product } = await find(params);
+  return { title: (range ?? product).name };
 }
 
 export default async function ProductPage({ params }) {
-  const product = await find(params);
+  const { range, product } = await find(params);
+  if (range) {
+    return (
+      <>
+        <RangeTabs current={range.name} />
+        <RangeGrid range={range} heading="h1" />
+      </>
+    );
+  }
   const variants = variantsFor(product.name);
   const others = allProducts.filter((p) => p.range === product.range && p.slug !== product.slug);
 
   return (
     <article className="pdp">
       <nav className="crumbs" aria-label="Breadcrumb">
-        <Link href="/products">Products</Link> / <Link href={`/products#${product.range.toLowerCase().replace(' ', '-')}`}>{product.range}</Link> / <span>{product.name}</span>
+        <Link href="/products">Products</Link> / <Link href={rangeHref(product.range)}>{product.range}</Link> / <span>{product.name}</span>
       </nav>
 
       <div className="pdp-top">

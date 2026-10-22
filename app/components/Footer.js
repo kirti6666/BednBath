@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import CardLogos from './CardLogos';
-import { brand, categories, footerColumns } from '../site';
+import { brand, categories, footerColumns, rangeHref } from '../site';
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <p className="footer-brand">{brand.name}<span>{brand.line}</span></p>
           <p>Premium bed, bath and banquet linen for hotels, made since 2010 and exported worldwide.</p>
-          <ul>{categories.map((c) => <li key={c.name}><Link href="/products">{c.name}</Link></li>)}</ul>
+          <ul>{categories.map((c) => <li key={c.name}><Link href={rangeHref(c.name)}>{c.name}</Link></li>)}</ul>
         </div>
         {footerColumns.map((col) => (
           <nav key={col.title} aria-label={col.title}>

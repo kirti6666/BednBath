@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { brand, categories, strengths, productHref, slug } from './site';
+import { brand, categories, strengths, productHref, rangeHref } from './site';
 
 // How an order runs on this site: prepaid online, confirmed once payment succeeds.
 const steps = [
@@ -29,7 +29,7 @@ export default function Home() {
         <ul className="ranges">
           {categories.map((c) => (
             <li key={c.name}>
-              <Link href={`/products#${slug(c.name)}`} className="range-card">
+              <Link href={rangeHref(c.name)} className="range-card">
                 {c.photo ? <img src={c.photo} alt="" width="900" height="675" /> : <span className="weave" aria-hidden="true">Photography coming soon</span>}
                 <strong>{c.name}</strong>
                 <small>{c.products.length} products</small>

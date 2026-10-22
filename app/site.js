@@ -55,6 +55,7 @@ export const rangeDetails = {
   'Banquet Linen': ['Stain-resistant, elegant fabrics for banquets and events', 'Custom sizes, colours and logos'],
 };
 export const productHref = (name) => `/products/${slug(name)}`;
+export const rangeHref = (name) => `/products/${slug(name)}`;  // range and product slugs never collide
 
 export const strengths = [
   'Long-term production continuity since 2010',

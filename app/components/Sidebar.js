@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SideLinks from './SideLinks';
 import { sideGroups } from '../site';
 
 export default function Sidebar() {
@@ -7,7 +8,7 @@ export default function Sidebar() {
       {sideGroups.map((g) => (
         <nav key={g.title} className="side-card" aria-label={g.title}>
           <h2>{g.title}</h2>
-          <ul>{g.links.map((l) => <li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}</ul>
+          <SideLinks links={g.links} />
         </nav>
       ))}
       <div className="side-card quote">
