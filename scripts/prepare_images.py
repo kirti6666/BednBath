@@ -17,16 +17,22 @@ img = img.crop(Image.fromarray((alpha > 0.08).astype(np.uint8) * 255).getbbox())
 img.thumbnail((720, 720)); img.save(f'{out}/logo.png', optimize=True)
 print('logo', img.size)
 
-def photo(name, dest, size):
-    im = Image.open(f'{src}/{name}').convert('RGB')
-    tw, th = size; s = max(tw / im.width, th / im.height)
-    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    l, t = (im.width - tw) // 2, (im.height - th) // 2
-    im.crop((l, t, l + tw, t + th)).save(f'{out}/{dest}', quality=80, optimize=True, progressive=True)
-
 Image.open(f'{src}/8.jpg').convert('RGB').resize((1200, 900), Image.LANCZOS).save(f'{out}/banner.jpg', quality=78, optimize=True, progressive=True)
-photo('7.jpg', 'bedsheets.jpg', (400, 300))
-photo('9.jpg', 'duvet-covers.jpg', (400, 300))
-photo('10.jpg', 'bath-towels.jpg', (400, 300))
-# Pillowcases: close-up of the right-hand pillows in the gold-runner bed photo.
-Image.open(f'{src}/7.jpg').convert('RGB').crop((740, 200, 1130, 492)).resize((400, 300), Image.LANCZOS).save(f'{out}/pillowcases.jpg', quality=80, optimize=True, progressive=True)
+
+# Product gallery images, all 900x675 (4:3). box = (left, top, right, bottom) crop in the original, None = whole photo.
+def gallery(name, dest, box=None):
+    im = Image.open(f'{src}/{name}').convert('RGB')
+    if box: im = im.crop(box)
+    s = max(900 / im.width, 675 / im.height)
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    l, t = (im.width - 900) // 2, (im.height - 675) // 2
+    im.crop((l, t, l + 900, t + 675)).save(f'{out}/{dest}.jpg', quality=80, optimize=True, progressive=True)
+
+gallery('7.jpg', 'bed-gold')                                  # bed with gold runner, striped sheets
+gallery('8.jpg', 'room-navy')                                 # hotel room, navy runner
+gallery('9.jpg', 'bed-patterned')                             # bed with patterned runner
+gallery('7.jpg', 'pillows-gold', (300, 170, 1130, 792))       # both pillow pairs, gold-runner bed
+gallery('9.jpg', 'pillows-patterned', (360, 140, 1180, 755))  # pillows, patterned-runner bed
+gallery('8.jpg', 'pillows-navy', (640, 400, 1180, 805))       # pillows and cushions, navy room
+gallery('10.jpg', 'towels', (0, 330, 1200, 1230))             # towel stack
+gallery('10.jpg', 'towels-detail', (0, 120, 800, 720))        # close-up of the dobby borders

@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { load, save, setQty, removeLine, lineCents, totalCents, usd } from '../cart';
+import { load, save, setQty, removeLine, discountPct, lineCents, listCents, totalCents, usd } from '../cart';
 
 export default function Cart() {
   const [lines, setLines] = useState([]);
@@ -11,11 +11,13 @@ export default function Cart() {
   if (!lines.length) {
     return (
       <p className="lead">
-        Your cart is empty. Open the <Link href="/price-list">Price List</Link> and click any price to add that item at its
-        minimum order quantity.
+        Your cart is empty. Choose a product on the <Link href="/products">Products</Link> page, or click any price on
+        the <Link href="/price-list">Price List</Link>.
       </p>
     );
   }
+
+  const saved = lines.reduce((s, l) => s + listCents(l) - lineCents(l), 0);
 
   return (
     <>
@@ -32,9 +34,9 @@ export default function Cart() {
               <td>{l.option}</td>
               <td className="num">{l.price.toFixed(2)}</td>
               <td>
-                <input type="number" min={l.moq} step="1" defaultValue={l.qty} aria-label={`Quantity of ${l.name}`}
+                <input type="number" min="1" step="1" defaultValue={l.qty} aria-label={`Quantity of ${l.name}`}
                   onBlur={(e) => { const next = setQty(lines, l.key, e.target.value); e.target.value = next.find((n) => n.key === l.key).qty; update(next); }} />
-                <small> MOQ {l.moq}</small>
+                <small>{discountPct(l) ? ` ${discountPct(l)}% bulk discount` : ` 3% off from ${l.moq}`}</small>
               </td>
               <td className="num">{usd(lineCents(l))}</td>
               <td><button type="button" className="link-btn" onClick={() => update(removeLine(lines, l.key))}>Remove</button></td>
@@ -42,21 +44,15 @@ export default function Cart() {
           ))}
         </tbody>
         <tfoot>
-          <tr><th scope="row" colSpan="5">Subtotal (excluding shipping and duties)</th><td className="num"><strong>{usd(totalCents(lines))}</strong></td><td /></tr>
+          {saved > 0 && <tr><th scope="row" colSpan="5">Bulk discount included</th><td className="num">−{usd(saved)}</td><td /></tr>}
+          <tr><th scope="row" colSpan="5">Subtotal (shipping added at checkout)</th><td className="num"><strong>{usd(totalCents(lines))}</strong></td><td /></tr>
         </tfoot>
       </table>
 
-      <h2 className="subtitle">Send order request</h2>
-      <p>We confirm stock, lead time and shipping, then send a proforma invoice. See <Link href="/payment-options">Payment Options</Link>.</p>
-      {/* shortcut: posts to the future Node.js API; the cart is sent as JSON in a hidden field */}
-      <form className="form" method="post" action="/api/orders">
-        <input type="hidden" name="lines" value={JSON.stringify(lines)} />
-        <label htmlFor="order-name">Name *</label><input id="order-name" name="name" autoComplete="name" required />
-        <label htmlFor="order-company">Company</label><input id="order-company" name="company" autoComplete="organization" />
-        <label htmlFor="order-email">Email *</label><input id="order-email" name="email" type="email" autoComplete="email" required />
-        <label htmlFor="order-country">Delivery country *</label><input id="order-country" name="country" autoComplete="country-name" required />
-        <span /><button type="submit" className="btn">Send order request</button>
-      </form>
+      <div className="cart-next">
+        <p>All orders are prepaid. Enter your delivery address and pay securely online at checkout. See <Link href="/payment-options">Payment Options</Link>.</p>
+        <Link href="/checkout" className="btn">Proceed to checkout</Link>
+      </div>
     </>
   );
 }

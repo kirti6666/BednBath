@@ -4,7 +4,7 @@ export const tagline = 'Hotel linen manufacturer & exporter · Since 2010 · Mad
 // shortcut: contact details not supplied yet; pages show "to be added" for null values.
 export const contact = { address: null, phone: null, email: null };
 
-const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+export const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const link = (label, href = `/${slug(label)}`) => ({ label, href });
 
 export const utilityLinks = [link('Trade sign in', '/sign-in'), link('Enquiry', '/enquiry-form')];
@@ -29,15 +29,32 @@ export const specPage = '/products/400-tc-cotton-bed-sheet';
 
 export const categories = [
   { name: 'Bed Linen', note: 'High thread count (TC) cotton, poly cotton and luxury blends.',
-    products: ['Bedsheets', 'Duvet Covers', 'Pillowcases', 'Duvets & Comforters', 'Mattress Protectors', 'Bed Skirts'], spec: true, photo: '/images/bedsheets.jpg' },
+    products: ['Bedsheets', 'Duvet Covers', 'Pillowcases', 'Duvets & Comforters', 'Mattress Protectors', 'Bed Skirts'], spec: true, photo: '/images/bed-gold.jpg' },
   { name: 'Bath Linen', note: 'Soft, highly absorbent and durable hotel-quality towels.',
-    products: ['Bath Towels', 'Hand Towels', 'Face Towels', 'Bath Mats', 'Bathrobes'], photo: '/images/bath-towels.jpg' },
+    products: ['Bath Towels', 'Hand Towels', 'Face Towels', 'Bath Mats', 'Bathrobes'], photo: '/images/towels.jpg' },
   { name: 'Banquet Linen', note: 'Stain-resistant, elegant fabrics for banquets and events.',
     products: ['Table Cloths', 'Napkins', 'Runners', 'Chair Covers', 'Skirting'] },
 ];
 export const products = categories.flatMap((c) => c.products);
-// shortcut: photos for the products we have pictures of; the rest show a placeholder.
-export const photos = { 'Bedsheets': '/images/bedsheets.jpg', 'Duvet Covers': '/images/duvet-covers.jpg', 'Pillowcases': '/images/pillowcases.jpg', 'Bath Towels': '/images/bath-towels.jpg' };
+// shortcut: photos only for the products we have pictures of; the rest show a placeholder until photos arrive.
+const img = (...names) => names.map((n) => `/images/${n}.jpg`);
+export const photos = {
+  'Bedsheets': img('bed-gold', 'room-navy', 'bed-patterned'),
+  'Duvet Covers': img('bed-patterned', 'room-navy', 'bed-gold'),
+  'Pillowcases': img('pillows-gold', 'pillows-patterned', 'pillows-navy'),
+  'Bath Towels': img('towels', 'towels-detail'),
+};
+
+// Product facts shown on each product page, by range (from the company profile and the 400 TC specification).
+export const rangeDetails = {
+  'Bed Linen': ['100% cotton (Indian cotton), combed cotton / percale', '300 TC and 400 TC; plain percale or 1 cm satin stripe',
+    'Soft, smooth, durable finish for frequent industrial washing', 'White, ivory, beige, light grey and custom colours',
+    'Custom sizes, colours, embroidery, labels and packaging'],
+  'Bath Linen': ['Soft, highly absorbent and durable hotel-quality towels', 'Made for repeated industrial washing',
+    'Custom sizes, colours, embroidery and logos'],
+  'Banquet Linen': ['Stain-resistant, elegant fabrics for banquets and events', 'Custom sizes, colours and logos'],
+};
+export const productHref = (name) => `/products/${slug(name)}`;
 
 export const strengths = [
   'Long-term production continuity since 2010',

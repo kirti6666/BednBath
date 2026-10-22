@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { brand, categories, strengths } from './site';
+import { brand, categories, strengths, productHref, slug } from './site';
 
-// How a B2B order runs on this site: the order is confirmed by proforma invoice before payment.
+// How an order runs on this site: prepaid online, confirmed once payment succeeds.
 const steps = [
-  ['Choose products', 'Open the price list and click a price to add that item to your cart at its minimum order quantity.'],
-  ['Send your order request', 'Check sizes and quantities in the cart, then send it with your delivery country.'],
-  ['Receive a proforma invoice', 'We confirm stock, lead time and shipping, and send the final amount for approval.'],
-  ['Pay and we dispatch', 'Pay by bank transfer, deposit or card. Follow your shipment with consignment tracking.'],
+  ['Choose a product', 'Pick the fabric, size and thread count. Buy a single piece or in bulk for 3–4% off.'],
+  ['Add to cart or buy now', 'Collect several items in the cart, or go straight to checkout with one.'],
+  ['Enter your address', 'Delivery worldwide: UAE, USA, UK and more, with your postal or ZIP code.'],
+  ['Pay securely online', 'All orders are prepaid. Your order is confirmed as soon as payment succeeds.'],
 ];
 
 export default function Home() {
@@ -29,14 +29,14 @@ export default function Home() {
         <ul className="ranges">
           {categories.map((c) => (
             <li key={c.name}>
-              <Link href="/products">
-                {c.photo ? <img src={c.photo} alt="" width="400" height="300" /> : <span className="weave" aria-hidden="true">Photography coming soon</span>}
-                <span className="range-text">
-                  <strong>{c.name}</strong>
-                  <small>{c.products.length} products</small>
-                  <span>{c.products.join(' · ')}</span>
-                </span>
+              <Link href={`/products#${slug(c.name)}`} className="range-card">
+                {c.photo ? <img src={c.photo} alt="" width="900" height="675" /> : <span className="weave" aria-hidden="true">Photography coming soon</span>}
+                <strong>{c.name}</strong>
+                <small>{c.products.length} products</small>
               </Link>
+              <ul className="range-products">
+                {c.products.map((p) => <li key={p}><Link href={productHref(p)}>{p}</Link></li>)}
+              </ul>
             </li>
           ))}
         </ul>
