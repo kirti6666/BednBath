@@ -1,5 +1,13 @@
 import Link from 'next/link';
+import { variantsFor } from '../catalog';
+import { usd } from '../cart';
 import { categories, specPage, photos, productHref, rangeHref, slug } from '../site';
+
+// Lowest price across a product's sizes and thread counts, or null when it is only quoted on request.
+const fromPrice = (name) => {
+  const prices = variantsFor(name).flatMap((v) => v.options.map((o) => o.price));
+  return prices.length ? Math.min(...prices) : null;
+};
 
 // One range (Bed / Bath / Banquet Linen) as a grid of product cards; `heading` is h1 on the range's own page.
 export function RangeGrid({ range, heading: H = 'h2' }) {
@@ -14,8 +22,10 @@ export function RangeGrid({ range, heading: H = 'h2' }) {
         {range.products.map((p) => (
           <li key={p}>
             <Link href={productHref(p)}>
-              {photos[p] ? <img className="photo" src={photos[p][0]} alt="" width="900" height="675" /> : <span className="photo" aria-hidden="true" />}
+              {photos[p] ? <img className="photo" src={photos[p][0]} alt="" width="900" height="675" /> : <span className="photo weave" aria-hidden="true">Photography coming soon</span>}
               <span className="name">{p}</span>
+              <span className="price">{fromPrice(p) ? <>From <strong>{usd(Math.round(fromPrice(p) * 100))}</strong> · 3–4% off in bulk</> : 'Price on request'}</span>
+              <span className="more">View product</span>
             </Link>
           </li>
         ))}
