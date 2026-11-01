@@ -2,7 +2,7 @@ import { categories } from '../site';
 
 export const metadata = { title: 'Enquiry Form' };
 
-const buyerTypes = ['Hotel or resort', 'Hotel chain', 'Importer or distributor', 'Retailer or e-commerce brand', 'Other'];
+const buyerTypes = ['Hotel or resort', 'Hotel chain', 'Importer or distributor', 'Wholesaler', 'Other'];
 
 export default function EnquiryForm() {
   return (

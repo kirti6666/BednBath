@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import Gallery from '../../components/Gallery';
-import ProductBuy from '../../components/ProductBuy';
 import { RangeGrid, RangeTabs } from '../../components/RangeGrid';
 import { allProducts, variantsFor } from '../../catalog';
-import { categories, photos, rangeDetails, specPage, productHref, rangeHref, slug } from '../../site';
+import { categories, photos, rangeDetails, specPage, comforterSpecPage, comforterSizes, productHref, rangeHref, slug } from '../../site';
+
+const unique = (xs) => [...new Set(xs.filter(Boolean))];
 
 export const dynamicParams = false;
 // /products/<slug> is either a range page (bed-linen, bath-linen, banquet-linen) or a product page.
@@ -30,6 +31,18 @@ export default async function ProductPage({ params }) {
     );
   }
   const variants = variantsFor(product.name);
+  const options = variants.flatMap((v) => v.options);
+  // Comforter sizes follow the comforter specification, which is newer than the price list.
+  const sizes = product.name === 'Duvets & Comforters' ? comforterSizes.map(([s]) => s) : unique(variants.map((v) => v.size));
+  const facts = [
+    ['Fabric', unique(variants.map((v) => v.fabric)).join(', ')],
+    ['Style', unique(variants.map((v) => v.style)).join(', ')],
+    ['Sizes', sizes.join(', ')],
+    // Sheets, covers and pillowcases come in every thread count of the bed sheet specification, priced or not.
+    ['Thread count', ['Bedsheets', 'Duvet Covers', 'Pillowcases'].includes(product.name) ? '300 TC, 400 TC, 600 TC' : ''],
+    ['Minimum order', !options.length ? '' : unique(options.map((o) => o.moq)).length === 1 ? `${options[0].moq} per size` : 'Depends on size'],
+  ].filter(([, v]) => v);
+  const spec = product.name === 'Duvets & Comforters' ? comforterSpecPage : product.range === 'Bed Linen' ? specPage : null;
   const others = allProducts.filter((p) => p.range === product.range && p.slug !== product.slug);
 
   return (
@@ -43,18 +56,20 @@ export default async function ProductPage({ params }) {
         <div>
           <p className="eyebrow">{product.range}</p>
           <h1>{product.name}</h1>
-          {variants.length ? (
-            <ProductBuy variants={variants} />
-          ) : (
-            <div className="pdp-request">
-              <p><strong>Price on request.</strong> Tell us the sizes, colours and quantities you need and we reply with a quotation.</p>
-              <Link href="/enquiry-form" className="btn">Request a quote</Link>
-            </div>
+          <p className="pdp-price">
+            {options.length ? <>From ${Math.min(...options.map((o) => o.price)).toFixed(2)} <small>USD per piece or set</small></> : <small>Price on request</small>}
+          </p>
+          {facts.length > 0 && (
+            <dl className="pdp-facts">{facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
           )}
+          <div className="pdp-actions">
+            <Link href="/enquiry-form" className="btn">Request a quote</Link>
+            <Link href="/price-list" className="btn ghost">See the price list</Link>
+          </div>
           <ul className="pdp-promise">
-            <li>Ships worldwide from India: UAE, USA, UK and more</li>
-            <li>Prices in USD · prepaid orders, paid securely at checkout</li>
-            <li>Bulk discount: 3% at the minimum order quantity, 4% at 5×</li>
+            <li>Exported worldwide from India</li>
+            <li>Custom sizes, colours, labels and private labelling</li>
+            <li>Final price, lead time and shipping confirmed on your quotation</li>
           </ul>
         </div>
       </div>
@@ -63,7 +78,7 @@ export default async function ProductPage({ params }) {
         <section>
           <h2>Product details</h2>
           <ul className="ticks single">{rangeDetails[product.range].map((d) => <li key={d}>{d}</li>)}</ul>
-          {product.range === 'Bed Linen' && <p><Link href={specPage}>Full 400 TC technical specification</Link> · <Link href="/size-guide">Size guide</Link></p>}
+          {spec && <p><Link href={spec}>Full technical specification</Link> · <Link href="/size-guide">Size guide</Link></p>}
         </section>
         <section>
           <h2>More {product.range.toLowerCase()}</h2>

@@ -5,12 +5,12 @@ import { BankIcon, CashIcon, CardIcon, ShieldIcon } from '../components/PayIcons
 export const metadata = { title: 'Payment Options' };
 
 const methods = [
-  { id: 'cards', title: 'Credit and debit cards', icon: <CardIcon />, tile: <CardLogos large />, logos: true,
-    text: 'Pay at checkout with Visa or Mastercard through our secure payment gateway. Your order is confirmed as soon as the payment succeeds, and a receipt is emailed to you.' },
   { id: 'online-bank-transfer', title: 'Online bank transfer', icon: <BankIcon />,
-    text: 'For large bulk orders you can ask to pay by international wire transfer (SWIFT) instead of card. We send a proforma invoice with our bank details; the order is confirmed and dispatched once the payment reaches our account.' },
+    text: 'Pay by international wire transfer (SWIFT) or by bank transfer within India. Our bank details come with the proforma invoice; please quote the invoice number as the payment reference.' },
   { id: 'direct-deposit', title: 'Direct deposit', icon: <CashIcon />,
-    text: 'Deposit the proforma invoice amount into our bank account at a branch, then email us the deposit slip with the invoice number. The order is confirmed once the deposit clears.' },
+    text: 'Deposit the invoice amount into our bank account at a branch, then email us the deposit slip with the invoice number so we can match the payment.' },
+  { id: 'cards', title: 'Credit and debit cards', icon: <CardIcon />, tile: <CardLogos large />, logos: true,
+    text: 'We accept Visa and Mastercard. Ask for a card payment link when you confirm your order.' },
 ];
 
 export default function PaymentOptions() {
@@ -18,8 +18,9 @@ export default function PaymentOptions() {
     <article className="prose wide">
       <h1 className="title">Payment Options</h1>
       <p>
-        All orders are prepaid. Choose your products, enter your delivery address at <Link href="/shopping-cart">checkout</Link> and
-        pay online; your order is confirmed as soon as the payment succeeds. All prices are in USD, and shipping is added at checkout.
+        After your <Link href="/enquiry-form">enquiry</Link>, we confirm prices, lead time and shipping and send a proforma
+        invoice. The payment terms for each order are stated on that invoice, and production starts once the agreed payment is
+        received. All prices are in USD.
       </p>
 
       <ul className="pay-tiles" aria-label="Ways to pay">
@@ -42,7 +43,7 @@ export default function PaymentOptions() {
         <div>
           <h2>Stay safe</h2>
           <ul>
-            <li>Card payments only happen on our secure checkout page. Bank details only come with our proforma invoice; if you receive changed bank details, call us to confirm before paying.</li>
+            <li>Bank details only come with our proforma invoice. If you receive changed bank details, call us to confirm before paying.</li>
             <li>We never ask for your card number or PIN by email, phone or WhatsApp.</li>
           </ul>
         </div>

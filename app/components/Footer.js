@@ -19,7 +19,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} {brand.name} {brand.line}. Manufacturer &amp; exporter: {brand.maker}.</p>
+        <p>© {new Date().getFullYear()} {brand.name} {brand.line}. Manufacturer and exporter of hotel linen, India.</p>
         <p className="accept">We accept <CardLogos /></p>
       </div>
     </footer>

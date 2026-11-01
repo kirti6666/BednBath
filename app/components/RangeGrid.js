@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { variantsFor } from '../catalog';
-import { usd } from '../cart';
-import { categories, specPage, photos, productHref, rangeHref, slug } from '../site';
+import { categories, specPage, comforterSpecPage, photos, productHref, rangeHref, slug } from '../site';
 
 // Lowest price across a product's sizes and thread counts, or null when it is only quoted on request.
 const fromPrice = (name) => {
@@ -16,7 +15,7 @@ export function RangeGrid({ range, heading: H = 'h2' }) {
       <H>{range.name}</H>
       <p className="muted">
         {range.note}
-        {range.spec && <> <Link href={specPage}>400 TC specification</Link> · <Link href="/price-list">Price list</Link></>}
+        {range.spec && <> <Link href={specPage}>Bed sheet specification</Link> · <Link href={comforterSpecPage}>Comforter specification</Link> · <Link href="/price-list">Price list</Link></>}
       </p>
       <ul className="gallery">
         {range.products.map((p) => (
@@ -24,7 +23,7 @@ export function RangeGrid({ range, heading: H = 'h2' }) {
             <Link href={productHref(p)}>
               {photos[p] ? <img className="photo" src={photos[p][0]} alt="" width="900" height="675" /> : <span className="photo weave" aria-hidden="true">Photography coming soon</span>}
               <span className="name">{p}</span>
-              <span className="price">{fromPrice(p) ? <>From <strong>{usd(Math.round(fromPrice(p) * 100))}</strong> · 3–4% off in bulk</> : 'Price on request'}</span>
+              <span className="price">{fromPrice(p) ? <>From <strong>${fromPrice(p).toFixed(2)}</strong></> : 'Price on request'}</span>
               <span className="more">View product</span>
             </Link>
           </li>

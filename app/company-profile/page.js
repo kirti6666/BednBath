@@ -14,8 +14,7 @@ export default function CompanyProfile() {
         core focus is high-quality bed linen, bath linen and banquet linen designed specifically for the hospitality industry.
       </p>
       <p>
-        We supply 4-star and 5-star hotels and also sell through major international retail platforms such as Amazon and
-        eBay. A significant portion of our production is exported worldwide.
+        We supply 4-star and 5-star hotels, and a significant portion of our production is exported worldwide.
       </p>
 
       <h2>Our Expertise &amp; Experience</h2>
@@ -23,7 +22,6 @@ export default function CompanyProfile() {
         'Continuous manufacturing of hotel-grade linen since 2010',
         'Strong specialization in the hotel industry',
         'Proven track record of supplying leading 4-star and 5-star hotels',
-        'Established presence in both B2B (hotels) and B2C (Amazon and eBay) channels',
         'Reliable exporter with consistent international shipments',
       ]} />
 
@@ -40,7 +38,6 @@ export default function CompanyProfile() {
       <h2>Markets We Serve</h2>
       <List items={[
         '4-star and 5-star hotels (direct supply)',
-        'International retail platforms (Amazon and eBay, exported products)',
         'Hospitality distributors and importers worldwide',
       ]} />
 

@@ -1,8 +1,8 @@
 // Writes preview.html (home) and preview-<page>.html for a few pages: exported pages as plain HTML/CSS (CSS inlined, Next.js scripts removed).
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const routes = ['/', '/products', '/company-profile', '/price-list', '/products/400-tc-cotton-bed-sheet',
-  '/enquiry-form', '/contact-us', '/shopping-cart', '/payment-options', '/terms-conditions',
+const routes = ['/', '/products', '/company-profile', '/price-list', '/products/bed-sheet-specification', '/products/comforter-specification',
+  '/enquiry-form', '/contact-us', '/payment-options', '/terms-conditions',
   '/consignment-tracking', '/size-guide', '/sign-in', '/par-stock-calculation', '/conversion-table', '/feedback',
   '/products/bedsheets', '/products/duvet-covers', '/products/pillowcases', '/products/bath-towels',
   '/products/bed-linen', '/products/bath-linen', '/products/banquet-linen'];

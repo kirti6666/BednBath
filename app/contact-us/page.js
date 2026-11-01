@@ -16,7 +16,6 @@ export default function ContactUs() {
       <table className="data spec">
         <tbody>
           <tr><th scope="row">Brand</th><td>{brand.name} {brand.line}</td></tr>
-          <tr><th scope="row">Manufacturer &amp; exporter</th><td>{brand.maker}</td></tr>
           <tr><th scope="row">Address</th><td>{value(contact.address, (v) => v)}</td></tr>
           <tr><th scope="row">Phone / WhatsApp</th><td>{value(contact.phone, (v) => <a href={`tel:${v.replace(/\s/g, '')}`}>{v}</a>)}</td></tr>
           <tr><th scope="row">Email</th><td>{value(contact.email, (v) => <a href={`mailto:${v}`}>{v}</a>)}</td></tr>

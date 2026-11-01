@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import MainNav from './MainNav';
 import Banner from './Banner';
-import CartLink from './CartLink';
 import { brand, tagline, utilityLinks, highlights } from '../site';
 
 export default function Header() {
@@ -15,7 +14,6 @@ export default function Header() {
         </form>
         <ul>
           {utilityLinks.map((l) => <li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}
-          <li><CartLink /></li>
         </ul>
       </div>
 

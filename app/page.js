@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { brand, categories, strengths, productHref, rangeHref } from './site';
 
-// How an order runs on this site: prepaid online, confirmed once payment succeeds.
+// How a bulk order with us runs, from enquiry to delivery.
 const steps = [
-  ['Choose a product', 'Pick the fabric, size and thread count. Buy a single piece or in bulk for 3–4% off.'],
-  ['Add to cart or buy now', 'Collect several items in the cart, or go straight to checkout with one.'],
-  ['Enter your address', 'Delivery worldwide: UAE, USA, UK and more, with your postal or ZIP code.'],
-  ['Pay securely online', 'All orders are prepaid. Your order is confirmed as soon as payment succeeds.'],
+  ['Send an enquiry', 'Tell us the products, sizes, thread count and quantities you need, and your delivery country.'],
+  ['Receive a quotation', 'We reply with prices, MOQ, lead time and shipping, and send samples on request.'],
+  ['Confirm the order', 'Approve the proforma invoice and make the agreed payment. Production starts.'],
+  ['Production and export', 'We manufacture, pack for export and ship worldwide, with tracking details by email.'],
 ];
 
 export default function Home() {
@@ -16,8 +16,8 @@ export default function Home() {
         <p className="eyebrow">Welcome to {brand.name}</p>
         <h2>Premium hotel linen, manufactured in India since 2010.</h2>
         <p>
-          We make bed, bath and banquet linen for 4-star and 5-star hotels, sell through Amazon and eBay, and export a
-          significant share of our production worldwide. <Link href="/company-profile">Read our company profile</Link>.
+          We make bed, bath and banquet linen for 4-star and 5-star hotels, and export a significant share of our
+          production worldwide. <Link href="/company-profile">Read our company profile</Link>.
         </p>
       </section>
 

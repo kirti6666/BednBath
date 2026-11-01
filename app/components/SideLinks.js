@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 // Line icons (24px grid) for the sidebar links, keyed by link address.
 const icons = {
   '/price-list': 'M4 6h16M4 12h16M4 18h10',
-  '/shopping-cart': 'M3 4h2l2.2 10.5h10.3L20 8H6.4M10 19.5a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0M18 19.5a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0',
   '/payment-options': 'M3 6h18v12H3zM3 10h18M7 15h4',
   '/size-guide': 'M3 15 15 3l6 6L9 21zM7 11l2 2M10 8l2 2M13 5l2 2',
   '/par-stock-calculation': 'M12 3 21 8l-9 5-9-5zM3 12l9 5 9-5M3 16l9 5 9-5',

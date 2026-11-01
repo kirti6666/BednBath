@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import sections from '../price-list.json';
 import { specPage } from '../site';
-import AddToCart from '../components/AddToCart';
-import { cartLine } from '../catalog';
 
 export const metadata = { title: 'Price List' };
 
@@ -16,8 +14,8 @@ export default function PriceList() {
       <p className="lead">
         Prices in USD per set or piece. MOQ is the minimum order quantity per size. For prices marked &ldquo;On request&rdquo;,
         custom sizes, colours or bulk quotations, please <Link href="/enquiry-form">send an enquiry</Link>.
-        Fabric details: <Link href={specPage}>400 TC specification</Link>.
-        <strong> Open a section to see sizes and prices, then click a price to add that item to your <Link href="/shopping-cart">cart</Link> at its MOQ (3% bulk discount).</strong> Or open any product on the <Link href="/products">Products</Link> page to buy a single piece.
+        Fabric details: <Link href={specPage}>bed sheet specification</Link>. Open a section to see sizes and prices.
+        Final prices, lead time and shipping are confirmed on your quotation.
       </p>
       {sections.map((s) => (
         <details key={s.title} className="pl-section">
@@ -38,7 +36,7 @@ export default function PriceList() {
                     const isPrice = s.columns[i].endsWith('(USD)');
                     return (
                       <td key={i} className={isPrice || s.columns[i] === 'MOQ' ? 'num' : undefined}>
-                        {isPrice && v !== 'On request' ? <AddToCart line={cartLine(s, r, i)} /> : v}
+                        {v}
                       </td>
                     );
                   })}

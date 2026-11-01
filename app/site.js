@@ -1,5 +1,5 @@
 // Brand, menus, links and products in one place.
-export const brand = { name: 'Luxurious Life', line: 'Hotel Bed & Bath', maker: 'Sagar Traders, India' };
+export const brand = { name: 'Luxurious Life', line: 'Hotel Bed & Bath' };
 export const tagline = 'Hotel linen manufacturer & exporter · Since 2010 · Made in India';
 // shortcut: contact details not supplied yet; pages show "to be added" for null values.
 export const contact = { address: null, phone: null, email: null };
@@ -13,7 +13,7 @@ export const mainNav = [
   link('Manufacturing'), link('Clients'), link('Testimonials'), link('Contact', '/contact-us'),
 ];
 export const sideGroups = [
-  { title: 'Order', links: [link('Price List'), link('Shopping Cart'), link('Payment Options')] },
+  { title: 'Ordering', links: [link('Price List'), link('Payment Options')] },
   { title: 'Buyer tools', links: [link('Size guide'), link('Par stock calculator', '/par-stock-calculation'), link('Conversion table'), link('Consignment tracking')] },
   { title: 'Help', links: [link('Enquiry form'), link('Feedback'), link('Terms & Conditions')] },
 ];
@@ -25,7 +25,11 @@ export const footerColumns = [
 
 // Placeholder pages rendered by app/[slug]; every other link has its own folder under app/.
 export const pages = [link('Manufacturing'), link('Clients'), link('Offers'), link('Testimonials'), link('Sign Up')];
-export const specPage = '/products/400-tc-cotton-bed-sheet';
+export const specPage = '/products/bed-sheet-specification';
+export const comforterSpecPage = '/products/comforter-specification';
+
+// Standard comforter sizes in inches, from the comforter specification.
+export const comforterSizes = [['Twin', '68x88'], ['Twin XL', '68x90'], ['Full / Double', '80x90'], ['Queen', '90x90'], ['King', '104x90'], ['California King', '104x96']];
 
 export const categories = [
   { name: 'Bed Linen', note: 'High thread count (TC) cotton, poly cotton and luxury blends.',
@@ -45,9 +49,9 @@ export const photos = {
   'Bath Towels': img('towels', 'towels-detail'),
 };
 
-// Product facts shown on each product page, by range (from the company profile and the 400 TC specification).
+// Product facts shown on each product page, by range (from the company profile and the product specifications).
 export const rangeDetails = {
-  'Bed Linen': ['100% cotton (Indian cotton), combed cotton / percale', '300 TC and 400 TC; plain percale or 1 cm satin stripe',
+  'Bed Linen': ['100% organic Indian cotton, combed cotton / percale', '300 TC, 400 TC and 600 TC; plain percale or 1 cm satin stripe',
     'Soft, smooth, durable finish for frequent industrial washing', 'White, ivory, beige, light grey and custom colours',
     'Custom sizes, colours, embroidery, labels and packaging'],
   'Bath Linen': ['Soft, highly absorbent and durable hotel-quality towels', 'Made for repeated industrial washing',
@@ -60,7 +64,7 @@ export const rangeHref = (name) => `/products/${slug(name)}`;  // range and prod
 export const strengths = [
   'Long-term production continuity since 2010',
   'Experience serving demanding 4-star and 5-star hotel standards',
-  'Flexible production capacity for bulk orders as well as retail volumes',
+  'Flexible production capacity for large and repeat bulk orders',
   'Export-ready packaging and documentation',
   'Competitive pricing with consistent quality',
   'Customization of sizes, colours, embroidery, logo and packaging to buyer requirements',

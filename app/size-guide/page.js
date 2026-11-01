@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import sections from '../price-list.json';
 import { inToCm, cmToIn } from '../units';
+import { comforterSizes } from '../site';
 
 export const metadata = { title: 'Bed Linen Size Guide' };
 
@@ -45,11 +46,17 @@ export default function SizeGuide() {
       </table>
 
       <table className="data">
-        <caption>Duvet covers and comforters<span>The same sizes are used for duvets / comforters.</span></caption>
+        <caption>Duvet covers</caption>
         <thead><tr><th scope="col">Fits bed</th><th scope="col">Size</th><th scope="col">Pillowcases in set</th></tr></thead>
         <tbody>
           {duvets.map((r) => <tr key={r[0]}><th scope="row">{r[0].replace(/ \(.*/, '')}</th><td><Size v={r[1]} /></td><td><Size v={r[2]} /></td></tr>)}
         </tbody>
+      </table>
+
+      <table className="data narrow">
+        <caption>Comforters<span>USA standard sizes, from the comforter specification</span></caption>
+        <thead><tr><th scope="col">Size</th><th scope="col">Dimensions</th></tr></thead>
+        <tbody>{comforterSizes.map(([name, size]) => <tr key={name}><th scope="row">{name}</th><td><Size v={size} /></td></tr>)}</tbody>
       </table>
 
       <table className="data narrow">

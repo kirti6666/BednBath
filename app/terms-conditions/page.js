@@ -4,11 +4,11 @@ export const metadata = { title: 'Terms & Conditions' };
 
 // Draft wording; the business should review it (ideally with a lawyer) before launch.
 const terms = [
-  ['Who we are', `This website is run by ${brand.name} ${brand.line}. Products are manufactured and exported by ${brand.maker}. "We" and "us" mean ${brand.maker}; "you" means the buyer.`],
-  ['Prices', 'Prices are in US dollars, per set or piece. Shipping is added at checkout. Import duties and taxes in the destination country are paid by the buyer. Prices may change without notice; the price you pay at checkout is final for that order.'],
-  ['Orders and bulk discounts', 'You can order from a single piece. Each item has a minimum order quantity (MOQ) per size, shown on the product page and price list: ordering the MOQ or more gives 3% off, and five times the MOQ or more gives 4% off. An order is confirmed when its payment succeeds. Custom sizes, colours, embroidery, logos or packaging are quoted separately.'],
-  ['Payment', 'All orders are prepaid in full, online at checkout. Large bulk orders may instead be paid by bank transfer against a proforma invoice; such orders are confirmed when the payment reaches our account. See Payment Options.'],
-  ['Production and delivery', 'Lead time and the expected delivery date are emailed to you after payment, with tracking details once your order ships. We are not responsible for delays caused by carriers, customs or events outside our control.'],
+  ['Who we are', `This website is run by ${brand.name} ${brand.line}, a manufacturer and exporter of hotel linen in India. "We" and "us" mean ${brand.name}; "you" means the buyer.`],
+  ['Prices', 'Prices on the price list are in US dollars, per set or piece, and exclude shipping, insurance, duties and taxes. Prices may change without notice until an order is confirmed on a proforma invoice.'],
+  ['Orders and MOQ', 'An order is binding once you accept our proforma invoice and we receive the agreed payment. Each item has a minimum order quantity (MOQ) per size, shown on the price list. Custom sizes, colours, embroidery, logos or packaging may have their own MOQ.'],
+  ['Payment', 'Payment terms, methods and due dates are stated on the proforma invoice. Production starts when the agreed payment is received. See Payment Options.'],
+  ['Production and delivery', 'Lead times, shipping terms and delivery dates are confirmed on the proforma invoice, and tracking details are emailed once your order ships. We are not responsible for delays caused by carriers, customs or events outside our control.'],
   ['Samples', 'Samples can be supplied on request. Sample and courier charges, if any, are confirmed before dispatch.'],
   ['Product tolerances', 'Hotel linen is a textile product. Small variations in size, weight (GSM), thread count and shade between production lots are normal and within industry tolerance. Colours on screen may differ from the actual fabric.'],
   ['Inspection and claims', 'Please inspect goods on arrival. Report any shortage, damage or defect in writing promptly, with photos and the invoice number, before the goods are used or washed. Accepted claims are settled by replacement, repair or credit at our option.'],
