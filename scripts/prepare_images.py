@@ -1,4 +1,4 @@
-# Usage: python3 scripts/prepare_images.py <folder with 6.jpg logo, 7-10.jpg photos> public/images
+# Usage: python3 scripts/prepare_images.py <folder with 6.jpg logo, 7-10.jpg and 26-30.jpg photos> public/images
 # Logo on black -> transparent PNG for a light header (white -> ink, red kept); photos resized/cropped for the web.
 import sys
 import numpy as np
@@ -36,3 +36,8 @@ gallery('9.jpg', 'pillows-patterned', (360, 140, 1180, 755))  # pillows, pattern
 gallery('8.jpg', 'pillows-navy', (640, 400, 1180, 805))       # pillows and cushions, navy room
 gallery('10.jpg', 'towels', (0, 330, 1200, 1230))             # towel stack
 gallery('10.jpg', 'towels-detail', (0, 120, 800, 720))        # close-up of the dobby borders
+gallery('26.jpg', 'comforter-grey', (0, 89, 750, 651))         # grey comforter, folded
+gallery('27.jpg', 'comforter-grey-detail')                    # grey comforter, quilting close-up
+gallery('28.jpg', 'comforter-beige', (0, 180, 706, 710))       # beige comforter, folded
+gallery('29.jpg', 'comforter-beige-bed')                      # beige comforter on a bed
+gallery('30.jpg', 'comforter-brown', (0, 98, 737, 651))        # brown comforter, folded

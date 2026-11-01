@@ -47,6 +47,7 @@ export const photos = {
   'Duvet Covers': img('bed-patterned', 'room-navy', 'bed-gold'),
   'Pillowcases': img('pillows-gold', 'pillows-patterned', 'pillows-navy'),
   'Bath Towels': img('towels', 'towels-detail'),
+  'Duvets & Comforters': img('comforter-grey', 'comforter-grey-detail', 'comforter-beige', 'comforter-beige-bed', 'comforter-brown'),
 };
 
 // Product facts shown on each product page, by range (from the company profile and the product specifications).

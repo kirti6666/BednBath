@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const routes = ['/', '/products', '/company-profile', '/price-list', '/products/bed-sheet-specification', '/products/comforter-specification',
   '/enquiry-form', '/contact-us', '/payment-options', '/terms-conditions',
   '/consignment-tracking', '/size-guide', '/sign-in', '/par-stock-calculation', '/conversion-table', '/feedback',
-  '/products/bedsheets', '/products/duvet-covers', '/products/pillowcases', '/products/bath-towels',
+  '/products/bedsheets', '/products/duvet-covers', '/products/pillowcases', '/products/bath-towels', '/products/duvets-comforters',
   '/products/bed-linen', '/products/bath-linen', '/products/banquet-linen'];
 const pages = Object.fromEntries(routes.map((r) => [r, r === '/' ? 'preview.html' : `preview${r.replaceAll('/', '-')}.html`]));
 
