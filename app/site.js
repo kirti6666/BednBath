@@ -43,12 +43,15 @@ export const products = categories.flatMap((c) => c.products);
 // shortcut: photos only for the products we have pictures of; the rest show a placeholder until photos arrive.
 const img = (...names) => names.map((n) => `/images/${n}.jpg`);
 export const photos = {
-  'Bedsheets': img('bed-gold', 'room-navy', 'bed-patterned'),
-  'Duvet Covers': img('bed-patterned', 'room-navy', 'bed-gold'),
+  'Bedsheets': img('bed-navy-ll', 'bed-gold', 'room-navy', 'bed-patterned'),
+  'Duvet Covers': img('bed-patterned', 'bed-navy-ll', 'room-navy', 'bed-gold'),
   'Pillowcases': img('pillows-gold', 'pillows-patterned', 'pillows-navy'),
   'Bath Towels': img('towels', 'towels-detail'),
-  'Duvets & Comforters': img('comforter-grey', 'comforter-grey-detail', 'comforter-beige', 'comforter-beige-bed', 'comforter-brown'),
+  // One photo per colour in the comforter specification: Red, Pink, Grey, Black, White.
+  'Duvets & Comforters': img('comforter-red', 'comforter-pink', 'comforter-grey', 'comforter-black', 'comforter-white'),
 };
+// Captions shown on a product's photos, in the same order as its photos.
+export const photoCaptions = { 'Duvets & Comforters': ['Red', 'Pink', 'Grey', 'Black', 'White'] };
 
 // Product facts shown on each product page, by range (from the company profile and the product specifications).
 export const rangeDetails = {

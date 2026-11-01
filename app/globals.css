@@ -256,13 +256,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pdp-gallery > input { position: absolute; opacity: 0; pointer-events: none; }
 .gallery-main { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--silver); border-radius: 4px; background: #fff; }
 .gallery-main.weave { height: auto; }
-.gallery-main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.gallery-main figure { position: absolute; inset: 0; margin: 0; opacity: 0; }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-main figcaption { position: absolute; left: 12px; bottom: 12px; padding: 4px 12px; border-radius: 3px; background: rgb(20 30 51 / .82); color: var(--porcelain); font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .gallery-thumbs { display: flex; gap: 10px; margin-top: 10px; }
 .gallery-thumbs label { flex: 0 1 96px; aspect-ratio: 4 / 3; overflow: hidden; border: 2px solid transparent; border-radius: 3px; cursor: pointer; }
 .gallery-thumbs img { width: 100%; height: 100%; object-fit: cover; opacity: .7; }
 .gallery-thumbs label:hover img { opacity: 1; }
 /* Show the photo whose radio is checked and outline its thumbnail (supports up to five photos). */
-#photo-0:checked ~ .gallery-main img:nth-child(1), #photo-1:checked ~ .gallery-main img:nth-child(2), #photo-2:checked ~ .gallery-main img:nth-child(3), #photo-3:checked ~ .gallery-main img:nth-child(4), #photo-4:checked ~ .gallery-main img:nth-child(5) { opacity: 1; }
+#photo-0:checked ~ .gallery-main figure:nth-child(1), #photo-1:checked ~ .gallery-main figure:nth-child(2), #photo-2:checked ~ .gallery-main figure:nth-child(3), #photo-3:checked ~ .gallery-main figure:nth-child(4), #photo-4:checked ~ .gallery-main figure:nth-child(5) { opacity: 1; }
 #photo-0:checked ~ .gallery-thumbs label:nth-child(1), #photo-1:checked ~ .gallery-thumbs label:nth-child(2), #photo-2:checked ~ .gallery-thumbs label:nth-child(3), #photo-3:checked ~ .gallery-thumbs label:nth-child(4), #photo-4:checked ~ .gallery-thumbs label:nth-child(5) { border-color: var(--cobalt); }
 #photo-0:checked ~ .gallery-thumbs label:nth-child(1) img, #photo-1:checked ~ .gallery-thumbs label:nth-child(2) img, #photo-2:checked ~ .gallery-thumbs label:nth-child(3) img, #photo-3:checked ~ .gallery-thumbs label:nth-child(4) img, #photo-4:checked ~ .gallery-thumbs label:nth-child(5) img { opacity: 1; }
 .pdp-gallery > input:focus-visible ~ .gallery-thumbs { outline: 2px solid var(--cobalt); outline-offset: 2px; }

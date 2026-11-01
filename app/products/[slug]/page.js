@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Gallery from '../../components/Gallery';
 import { RangeGrid, RangeTabs } from '../../components/RangeGrid';
 import { allProducts, variantsFor } from '../../catalog';
-import { categories, photos, rangeDetails, specPage, comforterSpecPage, comforterSizes, productHref, rangeHref, slug } from '../../site';
+import { categories, photos, photoCaptions, rangeDetails, specPage, comforterSpecPage, comforterSizes, productHref, rangeHref, slug } from '../../site';
 
 const unique = (xs) => [...new Set(xs.filter(Boolean))];
 
@@ -38,6 +38,7 @@ export default async function ProductPage({ params }) {
     ['Fabric', unique(variants.map((v) => v.fabric)).join(', ')],
     ['Style', unique(variants.map((v) => v.style)).join(', ')],
     ['Sizes', sizes.join(', ')],
+    ['Colours', photoCaptions[product.name]?.join(', ') ?? ''],
     // Sheets, covers and pillowcases come in every thread count of the bed sheet specification, priced or not.
     ['Thread count', ['Bedsheets', 'Duvet Covers', 'Pillowcases'].includes(product.name) ? '300 TC, 400 TC, 600 TC' : ''],
     ['Minimum order', !options.length ? '' : unique(options.map((o) => o.moq)).length === 1 ? `${options[0].moq} per size` : 'Depends on size'],
@@ -52,7 +53,7 @@ export default async function ProductPage({ params }) {
       </nav>
 
       <div className="pdp-top">
-        <Gallery name={product.name} images={photos[product.name]} />
+        <Gallery name={product.name} images={photos[product.name]} captions={photoCaptions[product.name]} />
         <div>
           <p className="eyebrow">{product.range}</p>
           <h1>{product.name}</h1>
