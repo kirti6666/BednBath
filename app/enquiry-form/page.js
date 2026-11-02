@@ -16,6 +16,7 @@ export default function EnquiryForm() {
       <MailForm
         subject="New enquiry"
         button="Send enquiry"
+        whatsapp
         thanksTitle="Thank you for your enquiry"
         thanksText="We have received your enquiry and will reply by email soon with prices, MOQ and lead time."
       >

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SideLinks from './SideLinks';
+import { WhatsAppButton } from './WhatsApp';
 import { sideGroups } from '../site';
 
 export default function Sidebar() {
@@ -14,7 +15,10 @@ export default function Sidebar() {
       <div className="side-card quote">
         <h2>Need a bulk quote?</h2>
         <p>Tell us the items, sizes and quantities. We reply with prices, MOQ and lead time.</p>
-        <Link href="/enquiry-form" className="btn">Request a quote</Link>
+        <div className="quote-actions">
+          <Link href="/enquiry-form" className="btn">Request a quote</Link>
+          <WhatsAppButton compact />
+        </div>
       </div>
     </aside>
   );

@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import { WhatsAppButton } from './WhatsApp';
 
 const SEEN = 'offer-seen';
 
@@ -24,6 +25,7 @@ export default function OfferPopup() {
       <p>The larger your order, the bigger the saving. Your discount is confirmed on your quotation.</p>
       <div className="offer-actions">
         <Link href="/enquiry-form" className="btn" onClick={close}>Request a quote</Link>
+        <WhatsAppButton topic="a bulk order" />
         <form method="dialog"><button className="offer-no">No thanks</button></form>
       </div>
     </dialog>

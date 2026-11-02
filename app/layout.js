@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import OfferPopup from './components/OfferPopup';
+import { WhatsAppFloat } from './components/WhatsApp';
 import { brand } from './site';
 
 export const metadata = {
@@ -61,6 +62,7 @@ export default function RootLayout({ children }) {
           </div>
           <Footer />
         </div>
+        <WhatsAppFloat />
         <OfferPopup />
         <div id="gt" hidden />
       </body>

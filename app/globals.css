@@ -44,7 +44,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Photo fills the right side and fades into the text on the left. */
 .banner { position: relative; display: flex; align-items: center; height: 240px; padding: 0 56px; overflow: hidden; background: var(--porcelain); }
-.banner > div { position: relative; z-index: 2; max-width: 500px; }
+.banner > div { position: relative; z-index: 2; max-width: 600px; }
 .banner::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 58%; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, var(--porcelain) 69%, rgb(250 250 247 / 0)); }  /* solid up to where the photo starts (40% of the banner) */
 .banner img { position: absolute; top: 0; right: 0; width: 60%; height: 100%; object-fit: cover; object-position: 60% 62%; }
@@ -53,7 +53,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .banner p:not(.eyebrow) { margin: 0; color: var(--muted); }
 .cta { display: flex; align-items: center; gap: 22px; margin-top: 14px; }
 .cta .link { color: var(--ink); text-decoration: underline; }
-.btn { display: inline-block; padding: 9px 22px; border: 0; border-radius: 999px; background: var(--cobalt); color: #fff; font: 500 15px var(--sans); cursor: pointer; }
+.btn { display: inline-block; white-space: nowrap; padding: 9px 22px; border: 0; border-radius: 999px; background: var(--cobalt); color: #fff; font: 500 15px var(--sans); cursor: pointer; }
 .btn:hover { background: var(--cobalt-dark); text-decoration: none; }
 
 /* Selling points under the banner */
@@ -351,3 +351,25 @@ body { top: 0 !important; }
 .thanks-tick { width: 56px; height: 56px; fill: none; stroke: var(--cobalt); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .thanks h2 { margin-top: 12px; }
 .thanks form { margin: 0; }
+
+/* WhatsApp: buttons beside enquiry buttons (darker green so white text stays readable) and a floating button */
+.btn.wa { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #15803d; color: #fff; }
+.btn.wa:hover { background: #116632; }
+.wa-logo { width: 20px; height: 20px; flex: none; }
+.wa-bubble { fill: #fff; }
+.wa-phone { fill: #15803d; }
+.btn.wa-compact { width: 38px; height: 38px; padding: 0; }
+.side-card.quote .btn.wa { background: #15803d; color: #fff; }
+.side-card.quote .btn.wa-compact { padding: 0; }
+.quote-actions { display: flex; align-items: center; gap: 10px; }
+.cta-band .btn.wa { background: #15803d; color: #fff; }
+.pdp-actions .btn.ghost { grid-column: 1 / -1; }
+.form-actions { margin-top: 0; gap: 14px; }
+.offer-actions { flex-wrap: wrap; gap: 14px 20px; }
+.wa-float { position: fixed; z-index: 40; right: 24px; bottom: 24px; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: #25d366; box-shadow: 0 6px 20px rgb(20 30 51 / .3); transition: transform .15s; }
+.wa-float:hover { transform: scale(1.06); }
+.wa-float .wa-logo { width: 34px; height: 34px; }
+.wa-float .wa-phone { fill: #25d366; }
+/* Phones and tablets show the page zoomed out, so draw the floating button larger there. */
+@media (pointer: coarse) { .wa-float { width: 100px; height: 100px; right: 30px; bottom: 30px; } .wa-float .wa-logo { width: 58px; height: 58px; } }
+@media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }

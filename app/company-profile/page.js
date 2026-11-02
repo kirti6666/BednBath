@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { WhatsAppButton } from '../components/WhatsApp';
 import { categories, strengths } from '../site';
 
 export const metadata = { title: 'Company Profile' };
@@ -52,7 +53,10 @@ export default function CompanyProfile() {
         We welcome inquiries from international buyers, hotel chains, importers and distributors. Contact us for product
         catalogues, samples, MOQ details and competitive quotations.
       </p>
-      <Link href="/enquiry-form" className="btn">Send an enquiry</Link>
+      <div className="cta">
+        <Link href="/enquiry-form" className="btn">Send an enquiry</Link>
+        <WhatsAppButton />
+      </div>
     </article>
   );
 }

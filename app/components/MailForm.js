@@ -1,12 +1,13 @@
 'use client';
 import { useRef, useState } from 'react';
 import { formsEmail } from '../site';
+import { WhatsAppButton } from './WhatsApp';
 
 const ENDPOINT = `https://formsubmit.co/ajax/${formsEmail}`;
 
 // A form that emails its answers to the admin (a table, one row per field, named after each field's `name`)
 // and thanks the visitor in a pop-up.
-export default function MailForm({ subject, button, thanksTitle, thanksText, children }) {
+export default function MailForm({ subject, button, thanksTitle, thanksText, whatsapp = false, children }) {
   const thanks = useRef(null);
   const [status, setStatus] = useState('idle'); // idle | sending | error
 
@@ -53,7 +54,10 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, chi
         <input type="text" name="_honey" hidden tabIndex={-1} autoComplete="off" aria-label="Leave this field empty" />
         <span />
         <div>
-          <button type="submit" className="btn" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : button}</button>
+          <div className="cta form-actions">
+            <button type="submit" className="btn" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : button}</button>
+            {whatsapp && <WhatsAppButton />}
+          </div>
           {status === 'error' && (
             <p className="form-error" role="alert">Sorry, this could not be sent. Please check your internet connection and try again.</p>
           )}

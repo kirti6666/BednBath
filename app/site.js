@@ -2,7 +2,9 @@
 export const brand = { name: 'Luxurious Life', line: 'Hotel Bed & Bath' };
 export const tagline = 'Hotel linen manufacturer & exporter · India';
 // shortcut: contact details not supplied yet; pages show "to be added" for null values.
-export const contact = { address: null, phone: null, email: null };
+export const contact = { address: null, phone: '+91 99814 99171', email: null };
+// WhatsApp enquiries: wa.me needs the number with its country code and no + or spaces.
+export const whatsapp = '919981499171';
 // Enquiry and feedback forms are emailed here through FormSubmit (formsubmit.co): no server or password needed.
 // The first submission sends an "Activate form" email to this inbox; click it once. FormSubmit then offers a random
 // alias for the address: put the alias here so the real address is not in the page code.

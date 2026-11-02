@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { WhatsAppButton } from '../components/WhatsApp';
 
 export const metadata = { title: 'Testimonials' };
 
@@ -52,6 +53,7 @@ export default function Testimonials() {
       <div className="cta">
         <Link href="/feedback" className="btn">Share your feedback</Link>
         <Link href="/enquiry-form" className="link">Send an enquiry</Link>
+        <WhatsAppButton />
       </div>
     </section>
   );

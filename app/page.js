@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { WhatsAppButton } from './components/WhatsApp';
 import { brand, categories, strengths, shipsTo, languages, productHref, rangeHref } from './site';
 
 // How a bulk order with us runs, from enquiry to delivery.
@@ -84,6 +85,7 @@ export default function Home() {
         </div>
         <div className="cta">
           <Link href="/enquiry-form" className="btn">Request a quote</Link>
+          <WhatsAppButton />
           <Link href="/par-stock-calculation" className="link">Par stock calculator</Link>
         </div>
       </section>

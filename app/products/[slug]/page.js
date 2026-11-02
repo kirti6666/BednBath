@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Gallery from '../../components/Gallery';
+import { WhatsAppButton } from '../../components/WhatsApp';
 import { Price, CurrencySelect, RateNote } from '../../components/Currency';
 import { RangeGrid, RangeTabs } from '../../components/RangeGrid';
 import { allProducts, variantsFor } from '../../catalog';
@@ -72,6 +73,7 @@ export default async function ProductPage({ params }) {
           )}
           <div className="pdp-actions">
             <Link href="/enquiry-form" className="btn">Request a quote</Link>
+            <WhatsAppButton topic={product.name} />
             <Link href="/price-list" className="btn ghost">See the price list</Link>
           </div>
           <ul className="pdp-promise">

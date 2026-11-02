@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { WhatsAppButton } from '../components/WhatsApp';
 import { brand, contact, shipsTo } from '../site';
 
 export const metadata = { title: 'Contact us' };
@@ -24,6 +25,7 @@ export default function ContactUs() {
       </table>
       <div className="cta">
         <Link href="/enquiry-form" className="btn">Send an enquiry</Link>
+        <WhatsAppButton />
         <Link href="/price-list" className="link">See the price list</Link>
       </div>
     </section>
