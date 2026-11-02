@@ -12,7 +12,7 @@ const fit = `<script>
 // Frames (like the claude.ai preview) ignore the viewport meta, so zoom the fixed-width page to fit there too.
 const fit = () => (document.querySelector('.page').style.zoom = Math.min(1000, innerWidth) / 1261);
 fit(); addEventListener('resize', fit);
-document.addEventListener('submit', (e) => e.preventDefault());
+document.addEventListener('submit', (e) => e.target.method !== 'dialog' && e.preventDefault());
 </script>`;
 
 // Without React, convert prices here: currency options carry their rate, country options their currency.
@@ -29,6 +29,11 @@ document.addEventListener('change', (e) => {
   const s = e.target.closest('.currency select');
   if (s) pick(s.closest('.country') ? s.selectedOptions[0].dataset.currency : s.value);
 });
+const offer = document.querySelector('dialog.offer');
+let seen = false;
+try { seen = sessionStorage.getItem('offer-seen'); sessionStorage.setItem('offer-seen', '1'); } catch {}
+if (offer && !seen) setTimeout(() => offer.showModal(), 1500);
+offer?.addEventListener('click', (e) => e.target === offer && offer.close());
 </script>`;
 
 for (const [route, file] of Object.entries(pages)) {

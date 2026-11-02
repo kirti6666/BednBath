@@ -2,6 +2,7 @@ import './globals.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
+import OfferPopup from './components/OfferPopup';
 import { brand } from './site';
 
 export const metadata = {
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
           </div>
           <Footer />
         </div>
+        <OfferPopup />
         <div id="gt" hidden />
       </body>
     </html>

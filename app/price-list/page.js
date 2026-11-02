@@ -16,7 +16,7 @@ export default function PriceList() {
         Prices per set or piece, set in USD; choose a currency to see them converted at today&apos;s rate. MOQ is the minimum order quantity per size. For prices marked &ldquo;On request&rdquo;,
         custom sizes, colours or bulk quotations, please <Link href="/enquiry-form">send an enquiry</Link>.
         Fabric details: <Link href={specPage}>bed sheet specification</Link>. Open a section to see sizes and prices.
-        Final prices, lead time and shipping are confirmed on your quotation.
+        Bulk orders get up to 6% off. Final prices, discount, lead time and shipping are confirmed on your quotation.
       </p>
       <p className="pl-currency"><label htmlFor="currency-pl">Show prices in</label> <CurrencySelect id="currency-pl" /></p>
       <RateNote />

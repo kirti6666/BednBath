@@ -332,3 +332,15 @@ body { top: 0 !important; }
 .reviews blockquote::before { content: '\201C'; position: absolute; top: -8px; left: -2px; color: var(--cobalt); font: 600 48px/1 var(--serif); }
 .reviews p { margin: 0; padding-top: 12px; border-top: 1px solid var(--ice); color: var(--muted); font-size: 14px; line-height: 1.5; }
 .reviews strong { display: block; color: var(--ink); font-size: 16px; font-weight: 600; }
+
+/* Bulk-order offer pop-up (outside .page, so sized for the 1000px-wide layout) */
+.offer { width: min(460px, 92vw); padding: 34px 34px 28px; border: 0; border-top: 4px solid var(--cobalt); border-radius: 6px; background: var(--porcelain); color: var(--ink); text-align: center; box-shadow: 0 24px 60px rgb(20 30 51 / .35); }
+.offer::backdrop { background: rgb(20 30 51 / .55); }
+.offer h2 { margin: 8px 0 10px; font: 600 32px/1.15 var(--serif); }
+.offer h2 strong { color: var(--cobalt); font-weight: 600; }
+.offer p:not(.eyebrow) { margin: 0 0 22px; color: var(--muted); font-size: 16px; line-height: 1.5; }
+.offer-actions { display: flex; justify-content: center; align-items: center; gap: 20px; }
+.offer-actions form { margin: 0; }
+.offer-no { border: 0; background: none; color: var(--ink); font: 400 15px var(--sans); text-decoration: underline; cursor: pointer; }
+.offer-x { position: absolute; top: 8px; right: 10px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: none; color: var(--muted); font-size: 26px; line-height: 1; cursor: pointer; }
+.offer-x:hover { background: var(--ice); color: var(--ink); }
