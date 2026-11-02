@@ -5,7 +5,7 @@ const routes = ['/', '/products', '/company-profile', '/price-list', '/products/
   '/enquiry-form', '/contact-us', '/payment-options', '/terms-conditions',
   '/testimonials', '/size-guide', '/sign-in', '/par-stock-calculation', '/conversion-table', '/feedback',
   '/products/bedsheets', '/products/duvet-covers', '/products/pillowcases', '/products/bath-towels', '/products/duvets-comforters',
-  '/products/bed-linen', '/products/bath-linen', '/products/banquet-linen'];
+  '/products/bed-linen', '/products/bath-linen', '/products/banquet-linen', '/products/table-cloths', '/products/chair-covers', '/products/chair-sashes'];
 const pages = Object.fromEntries(routes.map((r) => [r, r === '/' ? 'preview.html' : `preview${r.replaceAll('/', '-')}.html`]));
 
 const fit = `<script>
