@@ -34,6 +34,8 @@ let seen = false;
 try { seen = sessionStorage.getItem('offer-seen'); sessionStorage.setItem('offer-seen', '1'); } catch {}
 if (offer && !seen) setTimeout(() => offer.showModal(), 1500);
 offer?.addEventListener('click', (e) => e.target === offer && offer.close());
+// A valid form shows its thank-you pop-up (the preview sends nothing).
+document.addEventListener('submit', (e) => e.target.method !== 'dialog' && e.target.closest('section')?.querySelector('dialog.thanks')?.showModal());
 </script>`;
 
 for (const [route, file] of Object.entries(pages)) {

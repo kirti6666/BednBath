@@ -3,6 +3,10 @@ export const brand = { name: 'Luxurious Life', line: 'Hotel Bed & Bath' };
 export const tagline = 'Hotel linen manufacturer & exporter · India';
 // shortcut: contact details not supplied yet; pages show "to be added" for null values.
 export const contact = { address: null, phone: null, email: null };
+// Enquiry and feedback forms are emailed here through FormSubmit (formsubmit.co): no server or password needed.
+// The first submission sends an "Activate form" email to this inbox; click it once. FormSubmit then offers a random
+// alias for the address: put the alias here so the real address is not in the page code.
+export const formsEmail = 'cottonmp09@gmail.com';
 
 export const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const link = (label, href = `/${slug(label)}`) => ({ label, href });

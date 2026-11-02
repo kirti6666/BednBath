@@ -344,3 +344,10 @@ body { top: 0 !important; }
 .offer-no { border: 0; background: none; color: var(--ink); font: 400 15px var(--sans); text-decoration: underline; cursor: pointer; }
 .offer-x { position: absolute; top: 8px; right: 10px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: none; color: var(--muted); font-size: 26px; line-height: 1; cursor: pointer; }
 .offer-x:hover { background: var(--ice); color: var(--ink); }
+
+/* Form sending error and thank-you pop-up (shares the offer pop-up's look) */
+.form-error { margin: 8px 0 0; color: #a3271f; font-size: 14px; }
+.btn:disabled { opacity: .7; cursor: wait; }
+.thanks-tick { width: 56px; height: 56px; fill: none; stroke: var(--cobalt); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.thanks h2 { margin-top: 12px; }
+.thanks form { margin: 0; }
