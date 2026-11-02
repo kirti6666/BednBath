@@ -50,7 +50,7 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, chi
     <>
       <form className="form" onSubmit={send}>
         {children}
-        <input type="text" name="_honey" className="sr-only" tabIndex={-1} autoComplete="off" aria-label="Leave this field empty" />
+        <input type="text" name="_honey" hidden tabIndex={-1} autoComplete="off" aria-label="Leave this field empty" />
         <span />
         <div>
           <button type="submit" className="btn" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : button}</button>
