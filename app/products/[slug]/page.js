@@ -4,7 +4,7 @@ import { WhatsAppButton } from '../../components/WhatsApp';
 import { Price, CurrencySelect, RateNote } from '../../components/Currency';
 import { RangeGrid, RangeTabs } from '../../components/RangeGrid';
 import { allProducts, variantsFor } from '../../catalog';
-import { categories, photos, photoCaptions, rangeDetails, specPage, comforterSpecPage, comforterSizes, productHref, rangeHref, slug } from '../../site';
+import { categories, photos, photoCaptions, productFacts, rangeDetails, specPage, comforterSpecPage, comforterSizes, productHref, rangeHref, slug } from '../../site';
 
 const unique = (xs) => [...new Set(xs.filter(Boolean))];
 
@@ -36,11 +36,12 @@ export default async function ProductPage({ params }) {
   const options = variants.flatMap((v) => v.options);
   // Comforter sizes follow the comforter specification, which is newer than the price list.
   const sizes = product.name === 'Duvets & Comforters' ? comforterSizes.map(([s]) => s) : unique(variants.map((v) => v.size));
+  const own = productFacts[product.name] ?? {};
   const facts = [
     ['Fabric', unique(variants.map((v) => v.fabric)).join(', ')],
-    ['Style', unique(variants.map((v) => v.style)).join(', ')],
+    ['Style', own.Style ?? unique(variants.map((v) => v.style)).join(', ')],
     ['Sizes', sizes.join(', ')],
-    ['Colours', unique(photoCaptions[product.name] ?? []).join(', ')],
+    ['Colours', own.Colours ?? unique(photoCaptions[product.name] ?? []).join(', ')],
     // Sheets, covers and pillowcases come in every thread count of the bed sheet specification, priced or not.
     ['Thread count', ['Bedsheets', 'Duvet Covers', 'Pillowcases'].includes(product.name) ? '300 TC, 400 TC, 600 TC' : ''],
     ['Minimum order', !options.length ? '' : unique(options.map((o) => o.moq)).length === 1 ? `${options[0].moq} per size` : 'Depends on size'],

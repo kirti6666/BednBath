@@ -53,7 +53,7 @@ export const categories = [
   { name: 'Bath Linen', note: 'Soft, highly absorbent and durable hotel-quality towels.',
     products: ['Bath Towels', 'Hand Towels', 'Face Towels', 'Bath Mats', 'Bathrobes'], photo: '/images/towels.jpg' },
   { name: 'Banquet Linen', note: 'Stain-resistant, elegant fabrics for banquets and events.',
-    products: ['Table Cloths', 'Napkins', 'Runners', 'Chair Covers', 'Skirting'] },
+    products: ['Table Cloths', 'Napkins', 'Runners', 'Chair Covers', 'Chair Sashes', 'Skirting'], photo: '/images/chair-cover-table.jpg' },
 ];
 export const products = categories.flatMap((c) => c.products);
 // shortcut: photos only for the products we have pictures of; the rest show a placeholder until photos arrive.
@@ -61,15 +61,25 @@ const img = (...names) => names.map((n) => `/images/${n}.jpg`);
 export const photos = {
   'Bedsheets': img('bed-navy-ll', 'bed-gold', 'room-navy', 'bed-patterned'),
   'Duvet Covers': img('bed-patterned', 'bed-navy-ll', 'room-navy', 'bed-gold'),
-  'Pillowcases': img('pillows-gold', 'pillows-patterned', 'pillows-navy'),
+  'Pillowcases': img('pillows-white', 'pillows-gold', 'pillows-patterned', 'pillows-navy'),
   'Bath Towels': img('towels', 'towels-detail'),
   // One photo per colour in the comforter specification (Red, Pink, Grey, Black, White), plus two more grey views.
   'Hand Towels': img('towels-detail', 'towels'), // same white dobby-border towel range as the bath towels
   'Face Towels': img('towels', 'towels-detail'),
   'Duvets & Comforters': img('comforter-red', 'comforter-pink', 'comforter-grey', 'comforter-grey-folded', 'comforter-grey-bed', 'comforter-black', 'comforter-white'),
+  'Table Cloths': img('table-cloth-white', 'table-cloth-golden', 'table-cloth-red', 'table-cloth-white-round', 'table-cloth-maroon', 'table-cloth-pink', 'table-cloth-silver', 'table-cloth-blue'),
+  'Chair Covers': img('chair-cover-table', 'chair-cover-views', 'chair-cover-white', 'chair-cover-black', 'chair-cover-red', 'chair-cover-royal-blue', 'chair-cover-gold', 'chair-cover-maroon'),
+  'Chair Sashes': img('chair-sash-bow', 'chair-sash-cap', 'chair-sash-ribbon', 'chair-sash-all'),
 };
 // Captions shown on a product's photos, in the same order as its photos.
-export const photoCaptions = { 'Duvets & Comforters': ['Red', 'Pink', 'Grey', 'Grey', 'Grey', 'Black', 'White'] };
+export const photoCaptions = {
+  'Duvets & Comforters': ['Red', 'Pink', 'Grey', 'Grey', 'Grey', 'Black', 'White'],
+  'Table Cloths': ['White', 'Golden', 'Red', 'White', 'Maroon', 'Pink', 'Silver', 'Blue'],
+  'Chair Covers': ['White', 'White', 'White', 'Black', 'Red', 'Royal Blue', 'Gold', 'Maroon'],
+  'Chair Sashes': ['Bow', 'Cap', 'Ribbon', 'All styles'],
+};
+// Facts for products whose photo captions are styles rather than colours.
+export const productFacts = { 'Chair Sashes': { Style: 'Bow, Cap, Ribbon', Colours: 'Gold, Maroon, Royal Blue, Silver, Pink; Ivory (ribbon)' } };
 
 // Product facts shown on each product page, by range (from the company profile and the product specifications).
 export const rangeDetails = {
