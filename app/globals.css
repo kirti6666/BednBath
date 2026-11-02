@@ -44,7 +44,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Photo fills the right side and fades into the text on the left. */
 .banner { position: relative; display: flex; align-items: center; height: 240px; padding: 0 56px; overflow: hidden; background: var(--porcelain); }
-.banner > div { position: relative; z-index: 2; max-width: 600px; }
+.banner > div { position: relative; z-index: 2; max-width: 500px; }
 .banner::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 58%; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, var(--porcelain) 69%, rgb(250 250 247 / 0)); }  /* solid up to where the photo starts (40% of the banner) */
 .banner img { position: absolute; top: 0; right: 0; width: 60%; height: 100%; object-fit: cover; object-position: 60% 62%; }

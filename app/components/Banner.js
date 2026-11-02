@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { WhatsAppButton } from './WhatsApp';
 
 export default function Banner() {
   return (
@@ -10,7 +9,6 @@ export default function Banner() {
         <p>Bed, bath and banquet linen, made since 2010 and exported worldwide.</p>
         <div className="cta">
           <Link href="/enquiry-form" className="btn">Request a bulk quote</Link>
-          <WhatsAppButton />
           <Link href="/products" className="link">View collections</Link>
         </div>
       </div>
