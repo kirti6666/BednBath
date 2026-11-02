@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { brand, categories, strengths, productHref, rangeHref } from './site';
+import { brand, categories, strengths, shipsTo, languages, productHref, rangeHref } from './site';
 
 // How a bulk order with us runs, from enquiry to delivery.
 const steps = [
@@ -50,6 +50,23 @@ export default function Home() {
         <ol className="steps">
           {steps.map(([title, text]) => <li key={title}><strong>{title}</strong>{text}</li>)}
         </ol>
+      </section>
+
+      <section className="ship">
+        <div>
+          <h2>Where we ship</h2>
+          <p>
+            We export by sea and air freight from India, packed for export, with tracking details by email.
+            Shipping cost and delivery time are confirmed on your quotation.
+          </p>
+        </div>
+        <ul>
+          {shipsTo.map((c) => <li key={c}>{c}</li>)}
+          <li className="muted">Other countries on request</li>
+        </ul>
+        <p className="ship-extras">
+          Browse the site in {languages.length} languages and see prices in your own currency, using the selectors at the top of every page.
+        </p>
       </section>
 
       <section className="why">

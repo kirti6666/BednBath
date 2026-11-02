@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Gallery from '../../components/Gallery';
+import { Price, CurrencySelect, RateNote } from '../../components/Currency';
 import { RangeGrid, RangeTabs } from '../../components/RangeGrid';
 import { allProducts, variantsFor } from '../../catalog';
 import { categories, photos, photoCaptions, rangeDetails, specPage, comforterSpecPage, comforterSizes, productHref, rangeHref, slug } from '../../site';
@@ -57,9 +58,15 @@ export default async function ProductPage({ params }) {
         <div>
           <p className="eyebrow">{product.range}</p>
           <h1>{product.name}</h1>
-          <p className="pdp-price">
-            {options.length ? <>From ${Math.min(...options.map((o) => o.price)).toFixed(2)} <small>USD per piece or set</small></> : <small>Price on request</small>}
-          </p>
+          {options.length ? (
+            <>
+              <p className="pdp-price">
+                From <Price usd={Math.min(...options.map((o) => o.price))} /> <small>per piece or set</small>
+                <CurrencySelect id="currency-pdp" />
+              </p>
+              <RateNote />
+            </>
+          ) : <p className="pdp-price"><small>Price on request</small></p>}
           {facts.length > 0 && (
             <dl className="pdp-facts">{facts.map(([k, v]) => <div key={k}><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
           )}
@@ -68,7 +75,7 @@ export default async function ProductPage({ params }) {
             <Link href="/price-list" className="btn ghost">See the price list</Link>
           </div>
           <ul className="pdp-promise">
-            <li>Exported worldwide from India</li>
+            <li>Shipped from India to the USA, Canada, UK, UAE and worldwide</li>
             <li>Custom sizes, colours, labels and private labelling</li>
             <li>Final price, lead time and shipping confirmed on your quotation</li>
           </ul>

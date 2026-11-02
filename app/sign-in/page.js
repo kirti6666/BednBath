@@ -6,7 +6,7 @@ export default function SignIn() {
   return (
     <section className="signin" aria-labelledby="signin-title">
       <h1 id="signin-title">Trade sign in</h1>
-      <p className="muted">For registered hotel and trade buyers: view your orders, invoices and consignments.</p>
+      <p className="muted">For registered hotel and trade buyers: view your orders and invoices.</p>
       {/* shortcut: posts straight to the Node.js API; add client-side handling when that endpoint exists */}
       <form className="form" method="post" action="/api/auth/login">
         <label htmlFor="username">Username</label>

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import MainNav from './MainNav';
 import Banner from './Banner';
+import LanguagePicker from './LanguagePicker';
+import { CurrencySelect } from './Currency';
 import { brand, tagline, utilityLinks, highlights } from '../site';
 
 export default function Header() {
@@ -12,6 +14,8 @@ export default function Header() {
           <input name="q" placeholder="Search products" aria-label="Search products" />
           <button type="submit">Search</button>
         </form>
+        <LanguagePicker />
+        <CurrencySelect id="currency-top" />
         <ul>
           {utilityLinks.map((l) => <li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}
         </ul>
@@ -19,7 +23,7 @@ export default function Header() {
 
       <div className="masthead">
         <Link href="/" className="logo">
-          <img src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="236" height="76" />
+          <img translate="no" src="/images/logo.png" alt={`${brand.name} ${brand.line}`} width="236" height="76" />
         </Link>
         <MainNav />
       </div>

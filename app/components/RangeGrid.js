@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { variantsFor } from '../catalog';
+import { Price } from './Currency';
 import { categories, specPage, comforterSpecPage, photos, productHref, rangeHref, slug } from '../site';
 
 // Lowest price across a product's sizes and thread counts, or null when it is only quoted on request.
@@ -23,7 +24,7 @@ export function RangeGrid({ range, heading: H = 'h2' }) {
             <Link href={productHref(p)}>
               {photos[p] ? <img className="photo" src={photos[p][0]} alt="" width="900" height="675" /> : <span className="photo weave" aria-hidden="true">Photography coming soon</span>}
               <span className="name">{p}</span>
-              <span className="price">{fromPrice(p) ? <>From <strong>${fromPrice(p).toFixed(2)}</strong></> : 'Price on request'}</span>
+              <span className="price">{fromPrice(p) ? <>From <strong><Price usd={fromPrice(p)} /></strong></> : 'Price on request'}</span>
               <span className="more">View product</span>
             </Link>
           </li>

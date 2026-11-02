@@ -24,6 +24,20 @@ const fitToWindow = `(function () {
   addEventListener('resize', fit);
 })();`;
 
+// Load Google Translate only when a visitor has picked another language (LanguagePicker sets the cookie).
+const translate = `(function () {
+  if (!/(?:^|; )googtrans=\\/en\\/(?!en(;|$))/.test(document.cookie)) return;
+  // Translation swaps text for <font> tags; keep React from crashing when it later updates that text.
+  var remove = Node.prototype.removeChild, insert = Node.prototype.insertBefore;
+  Node.prototype.removeChild = function (c) { return c.parentNode === this ? remove.call(this, c) : c; };
+  Node.prototype.insertBefore = function (n, r) { return r && r.parentNode !== this ? n : insert.call(this, n, r); };
+  window.gtInit = function () { new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'gt'); };
+  var s = document.createElement('script');
+  s.src = 'https://translate.google.com/translate_a/element.js?cb=gtInit';
+  s.async = true;
+  document.head.appendChild(s);
+})();`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -35,6 +49,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap"
         />
         <script dangerouslySetInnerHTML={{ __html: fitToWindow }} />
+        <script dangerouslySetInnerHTML={{ __html: translate }} />
       </head>
       <body>
         <div className="page">
@@ -45,6 +60,7 @@ export default function RootLayout({ children }) {
           </div>
           <Footer />
         </div>
+        <div id="gt" hidden />
       </body>
     </html>
   );

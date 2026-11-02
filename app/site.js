@@ -10,25 +10,35 @@ const link = (label, href = `/${slug(label)}`) => ({ label, href });
 export const utilityLinks = [link('Trade sign in', '/sign-in'), link('Enquiry', '/enquiry-form')];
 export const mainNav = [
   link('Home', '/'), link('About', '/company-profile'), link('Products'), link('Price List'),
-  link('Manufacturing'), link('Clients'), link('Testimonials'), link('Contact', '/contact-us'),
+  link('Testimonials'), link('Contact', '/contact-us'),
 ];
 export const sideGroups = [
   { title: 'Ordering', links: [link('Price List'), link('Payment Options')] },
-  { title: 'Buyer tools', links: [link('Size guide'), link('Par stock calculator', '/par-stock-calculation'), link('Conversion table'), link('Consignment tracking')] },
+  { title: 'Buyer tools', links: [link('Size guide'), link('Par stock calculator', '/par-stock-calculation'), link('Conversion table')] },
   { title: 'Help', links: [link('Enquiry form'), link('Feedback'), link('Terms & Conditions')] },
 ];
 export const footerColumns = [
   { title: 'Buyer tools', links: sideGroups[1].links },
-  { title: 'Company', links: [link('About us', '/company-profile'), link('Manufacturing'), link('Clients'), link('Offers'), link('Testimonials'), link('Contact us')] },
+  { title: 'Company', links: [link('About us', '/company-profile'), link('Offers'), link('Testimonials'), link('Contact us')] },
   { title: 'Ordering', links: [...sideGroups[0].links, link('Enquiry form'), link('Terms & Conditions')] },
 ];
 
 // Placeholder pages rendered by app/[slug]; every other link has its own folder under app/.
-export const pages = [link('Manufacturing'), link('Clients'), link('Offers'), link('Testimonials'), link('Sign Up')];
+export const pages = [link('Offers'), link('Sign Up')];
 export const specPage = '/products/bed-sheet-specification';
 export const comforterSpecPage = '/products/comforter-specification';
 
 // Standard comforter sizes in inches, from the comforter specification.
+// Countries we ship to (named by the client); other destinations are quoted on request.
+export const shipsTo = ['United States', 'Canada', 'United Kingdom', 'United Arab Emirates (Dubai)'];
+
+// Languages offered through Google's automatic translation: [code, native name, English name]. Arabic left out on purpose.
+export const languages = [
+  ['en', 'English'], ['hi', 'हिन्दी', 'Hindi'], ['fr', 'Français', 'French'], ['es', 'Español', 'Spanish'],
+  ['de', 'Deutsch', 'German'], ['pt', 'Português', 'Portuguese'], ['it', 'Italiano', 'Italian'], ['nl', 'Nederlands', 'Dutch'],
+  ['ru', 'Русский', 'Russian'], ['zh-CN', '中文（简体）', 'Chinese'], ['ja', '日本語', 'Japanese'],
+];
+
 export const comforterSizes = [['Twin', '68x88'], ['Twin XL', '68x90'], ['Full / Double', '80x90'], ['Queen', '90x90'], ['King', '104x90'], ['California King', '104x96']];
 
 export const categories = [

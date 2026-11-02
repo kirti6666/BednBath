@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { brand, contact } from '../site';
+import { brand, contact, shipsTo } from '../site';
 
 export const metadata = { title: 'Contact us' };
 
@@ -18,6 +18,7 @@ export default function ContactUs() {
           <tr><th scope="row">Brand</th><td>{brand.name} {brand.line}</td></tr>
           <tr><th scope="row">Address</th><td>{value(contact.address, (v) => v)}</td></tr>
           <tr><th scope="row">Phone / WhatsApp</th><td>{value(contact.phone, (v) => <a href={`tel:${v.replace(/\s/g, '')}`}>{v}</a>)}</td></tr>
+          <tr><th scope="row">We ship to</th><td>{shipsTo.join(', ')} and other countries on request</td></tr>
           <tr><th scope="row">Email</th><td>{value(contact.email, (v) => <a href={`mailto:${v}`}>{v}</a>)}</td></tr>
         </tbody>
       </table>
