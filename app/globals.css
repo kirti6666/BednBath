@@ -347,6 +347,7 @@ body { top: 0 !important; }
 
 /* Form sending error and thank-you pop-up (shares the offer pop-up's look) */
 .form-error { margin: 8px 0 0; color: #a3271f; font-size: 14px; }
+.form-reason { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
 .btn:disabled { opacity: .7; cursor: wait; }
 .thanks-tick { width: 56px; height: 56px; fill: none; stroke: var(--cobalt); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .thanks h2 { margin-top: 12px; }

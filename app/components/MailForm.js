@@ -10,7 +10,8 @@ const ENDPOINT = `https://formsubmit.co/ajax/${formsEmail}`;
 export default function MailForm({ subject, button, thanksTitle, thanksText, whatsapp = false, children }) {
   const thanks = useRef(null);
   const [status, setStatus] = useState('idle'); // idle | sending | error
-  const [fallback, setFallback] = useState(''); // the answers as a WhatsApp message, offered when email fails
+  const [fallback, setFallback] = useState('');
+  const [reason, setReason] = useState(''); // the mail service's own explanation, shown to help set it up // the answers as a WhatsApp message, offered when email fails
 
   async function send(e) {
     e.preventDefault();
@@ -46,6 +47,7 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, wha
       thanks.current?.showModal();
     } catch (err) {
       console.error('Form not sent:', err);
+      setReason(err.name === 'TimeoutError' ? 'The mail service did not answer.' : err.message);
       setStatus('error');
     }
   }
@@ -65,6 +67,7 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, wha
             <p className="form-error" role="alert">
               Sorry, this could not be sent. Please try again, or{' '}
               <a href={fallback} target="_blank" rel="noopener noreferrer">send the same details on WhatsApp</a>.
+              {reason && <small className="form-reason">Reason: {reason}</small>}
             </p>
           )}
         </div>
