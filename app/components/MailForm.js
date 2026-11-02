@@ -1,7 +1,7 @@
 'use client';
 import { useRef, useState } from 'react';
 import { formsEmail } from '../site';
-import { WhatsAppButton } from './WhatsApp';
+import { WhatsAppButton, waLink } from './WhatsApp';
 
 const ENDPOINT = `https://formsubmit.co/ajax/${formsEmail}`;
 
@@ -10,6 +10,7 @@ const ENDPOINT = `https://formsubmit.co/ajax/${formsEmail}`;
 export default function MailForm({ subject, button, thanksTitle, thanksText, whatsapp = false, children }) {
   const thanks = useRef(null);
   const [status, setStatus] = useState('idle'); // idle | sending | error
+  const [fallback, setFallback] = useState(''); // the answers as a WhatsApp message, offered when email fails
 
   async function send(e) {
     e.preventDefault();
@@ -22,6 +23,7 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, wha
       if (!key.startsWith('_') && v) fields[key] = fields[key] ? `${fields[key]}, ${v}` : v; // ticked boxes join into one row
     }
     const who = [fields.Name, fields['Company / hotel'], fields.Country].filter(Boolean).join(', ');
+    setFallback(waLink(`${subject}\n${Object.entries(fields).map(([k, v]) => `${k}: ${v}`).join('\n')}`));
     setStatus('sending');
     try {
       const res = await fetch(ENDPOINT, {
@@ -35,6 +37,7 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, wha
           _template: 'table',
           _captcha: 'false',
         }),
+        signal: AbortSignal.timeout(15000), // give up instead of showing "Sending…" for ever when the mail service is slow or down
       });
       const out = await res.json().catch(() => ({}));
       if (!res.ok || String(out.success) !== 'true') throw new Error(out.message || `HTTP ${res.status}`);
@@ -59,7 +62,10 @@ export default function MailForm({ subject, button, thanksTitle, thanksText, wha
             {whatsapp && <WhatsAppButton />}
           </div>
           {status === 'error' && (
-            <p className="form-error" role="alert">Sorry, this could not be sent. Please check your internet connection and try again.</p>
+            <p className="form-error" role="alert">
+              Sorry, this could not be sent. Please try again, or{' '}
+              <a href={fallback} target="_blank" rel="noopener noreferrer">send the same details on WhatsApp</a>.
+            </p>
           )}
         </div>
       </form>

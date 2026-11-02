@@ -1,7 +1,7 @@
 import { brand, whatsapp } from '../site';
 
-const href = (topic) =>
-  `https://wa.me/${whatsapp}?text=${encodeURIComponent(`Hello ${brand.name}, I would like to enquire about ${topic}.`)}`;
+export const waLink = (text) => `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
+const href = (topic) => waLink(`Hello ${brand.name}, I would like to enquire about ${topic}.`);
 
 // WhatsApp logo: a speech bubble with a phone handset.
 const Logo = () => (
