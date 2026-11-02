@@ -42,4 +42,6 @@ gallery('31.webp', 'comforter-pink', (513, 168, 1018, 547))
 gallery('31.webp', 'comforter-grey', (1023, 168, 1536, 553))
 gallery('31.webp', 'comforter-black', (140, 662, 623, 1024))
 gallery('31.webp', 'comforter-white', (910, 662, 1393, 1024))
+gallery('26.jpg', 'comforter-grey-folded')                      # grey comforter, folded
+gallery('27.jpg', 'comforter-grey-bed')                         # grey comforter on a bed
 gallery('32.webp', 'bed-navy-ll')                             # striped sheets, navy runner, Luxurious Life logo

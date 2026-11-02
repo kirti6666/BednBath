@@ -1,25 +1,13 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { languages } from '../site';
-
-// Google Translate reads the "googtrans" cookie (/en/<language>) when the page loads; see the script in app/layout.js.
-const chosen = () => document.cookie.match(/(?:^|; )googtrans=\/en\/([^;]+)/)?.[1] || 'en';
-
-function choose(code) {
-  const host = location.hostname;
-  // Google may also have set the cookie on the domain: clear every copy, then set the new one.
-  for (const domain of ['', `; domain=${host}`, `; domain=.${host}`]) {
-    document.cookie = `googtrans=; path=/${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-  }
-  if (code !== 'en') document.cookie = `googtrans=/en/${code}; path=/`;
-  location.reload();
-}
+import { chosenLanguage, chooseLanguage } from '../language';
 
 export default function LanguagePicker() {
   const [lang, setLang] = useState('en');
   const ref = useRef(null);
   useEffect(() => {
-    setLang(chosen()); // the cookie only exists in the browser
+    setLang(chosenLanguage()); // the cookie only exists in the browser
     const close = (e) => { if (ref.current && !ref.current.contains(e.target)) ref.current.open = false; };
     document.addEventListener('click', close);
     return () => document.removeEventListener('click', close);
@@ -36,7 +24,7 @@ export default function LanguagePicker() {
         <ul>
           {languages.map(([code, native, english]) => (
             <li key={code}>
-              <button type="button" lang={code} aria-current={code === lang || undefined} onClick={() => code !== lang && choose(code)}>
+              <button type="button" lang={code} aria-current={code === lang || undefined} onClick={() => code !== lang && chooseLanguage(code)}>
                 {native}{english && <small>{english}</small>}
               </button>
             </li>

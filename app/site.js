@@ -1,6 +1,6 @@
 // Brand, menus, links and products in one place.
 export const brand = { name: 'Luxurious Life', line: 'Hotel Bed & Bath' };
-export const tagline = 'Hotel linen manufacturer & exporter · Since 2010 · Made in India';
+export const tagline = 'Hotel linen manufacturer & exporter · India';
 // shortcut: contact details not supplied yet; pages show "to be added" for null values.
 export const contact = { address: null, phone: null, email: null };
 
@@ -57,11 +57,13 @@ export const photos = {
   'Duvet Covers': img('bed-patterned', 'bed-navy-ll', 'room-navy', 'bed-gold'),
   'Pillowcases': img('pillows-gold', 'pillows-patterned', 'pillows-navy'),
   'Bath Towels': img('towels', 'towels-detail'),
-  // One photo per colour in the comforter specification: Red, Pink, Grey, Black, White.
-  'Duvets & Comforters': img('comforter-red', 'comforter-pink', 'comforter-grey', 'comforter-black', 'comforter-white'),
+  // One photo per colour in the comforter specification (Red, Pink, Grey, Black, White), plus two more grey views.
+  'Hand Towels': img('towels-detail', 'towels'), // same white dobby-border towel range as the bath towels
+  'Face Towels': img('towels', 'towels-detail'),
+  'Duvets & Comforters': img('comforter-red', 'comforter-pink', 'comforter-grey', 'comforter-grey-folded', 'comforter-grey-bed', 'comforter-black', 'comforter-white'),
 };
 // Captions shown on a product's photos, in the same order as its photos.
-export const photoCaptions = { 'Duvets & Comforters': ['Red', 'Pink', 'Grey', 'Black', 'White'] };
+export const photoCaptions = { 'Duvets & Comforters': ['Red', 'Pink', 'Grey', 'Grey', 'Grey', 'Black', 'White'] };
 
 // Product facts shown on each product page, by range (from the company profile and the product specifications).
 export const rangeDetails = {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import MainNav from './MainNav';
 import Banner from './Banner';
 import LanguagePicker from './LanguagePicker';
-import { CurrencySelect } from './Currency';
+import { CountrySelect, CurrencySelect } from './Currency';
 import { brand, tagline, utilityLinks, highlights } from '../site';
 
 export default function Header() {
@@ -15,6 +15,7 @@ export default function Header() {
           <button type="submit">Search</button>
         </form>
         <LanguagePicker />
+        <CountrySelect id="country-top" />
         <CurrencySelect id="currency-top" />
         <ul>
           {utilityLinks.map((l) => <li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}

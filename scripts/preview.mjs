@@ -15,6 +15,22 @@ fit(); addEventListener('resize', fit);
 document.addEventListener('submit', (e) => e.preventDefault());
 </script>`;
 
+// Without React, convert prices here: currency options carry their rate, country options their currency.
+const fx = `<script>
+const fmt = (usd, code, rate) => { try { return new Intl.NumberFormat('en', { style: 'currency', currency: code }).format(usd * rate); } catch { return '$' + usd.toFixed(2); } };
+const pick = (code) => {
+  const opt = document.querySelector('.currency:not(.country) option[value="' + code + '"]');
+  const rate = opt ? Number(opt.dataset.rate) : 1;
+  if (!opt) code = 'USD';
+  document.querySelectorAll('.currency:not(.country) select').forEach((s) => (s.value = code));
+  document.querySelectorAll('[data-usd]').forEach((el) => (el.textContent = fmt(Number(el.dataset.usd), code, rate)));
+};
+document.addEventListener('change', (e) => {
+  const s = e.target.closest('.currency select');
+  if (s) pick(s.closest('.country') ? s.selectedOptions[0].dataset.currency : s.value);
+});
+</script>`;
+
 for (const [route, file] of Object.entries(pages)) {
   const html = readFileSync(route === '/' ? 'out/index.html' : `out${route}.html`, 'utf8')
     .replace(/<link rel="stylesheet" href="(\/_next\/[^"]+)"[^>]*>/g, (_, href) => `<style>${readFileSync(`out${href}`, 'utf8')}</style>`)
@@ -23,7 +39,7 @@ for (const [route, file] of Object.entries(pages)) {
     .replace(/href="(\/(?!\/)[^"#]*)(#[^"]*)?"/g, (_, path, hash = '') => `href="${pages[path] ? pages[path] + hash : '#'}"`)
     // Inline images so each preview file stands alone.
     .replace(/src="\/images\/([^"]+)"/g, (_, f) => `src="data:image/${f.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(`public/images/${f}`).toString('base64')}"`)
-    .replace('</body>', `${fit}</body>`);
+    .replace('</body>', () => `${fit}${fx}</body>`);
 
   if (!html.includes('class="page"') || html.includes('/_next/')) throw new Error(`${file} still references the Next.js build`);
   writeFileSync(file, html);

@@ -25,10 +25,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .page { width: 1260px; margin: 0 auto; background: var(--porcelain); border-inline: 1px solid var(--silver); }
 
 /* Header: dark utility bar, then logo + text menu */
-.utility { display: flex; align-items: center; gap: 24px; padding: 7px 24px; background: var(--ink); color: var(--silver); font-size: 15px; }
-.utility p { margin: 0 auto 0 0; letter-spacing: .04em; white-space: nowrap; }
+.utility { display: flex; align-items: center; gap: 16px; padding: 7px 24px; background: var(--ink); color: var(--silver); font-size: 15px; }
+.utility p { margin: 0 auto 0 0; letter-spacing: .04em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .utility a { white-space: nowrap; }
 .utility ul { display: flex; gap: 20px; }
+.utility .country select { width: 190px; }
 .utility a { color: var(--porcelain); }
 .search { display: flex; }
 .search input { width: 200px; height: 28px; padding: 0 10px; border: 0; border-radius: 3px 0 0 3px; font: 15px var(--sans); }
@@ -265,9 +266,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .gallery-thumbs img { width: 100%; height: 100%; object-fit: cover; opacity: .7; }
 .gallery-thumbs label:hover img { opacity: 1; }
 /* Show the photo whose radio is checked and outline its thumbnail (supports up to five photos). */
-#photo-0:checked ~ .gallery-main figure:nth-child(1), #photo-1:checked ~ .gallery-main figure:nth-child(2), #photo-2:checked ~ .gallery-main figure:nth-child(3), #photo-3:checked ~ .gallery-main figure:nth-child(4), #photo-4:checked ~ .gallery-main figure:nth-child(5) { opacity: 1; }
-#photo-0:checked ~ .gallery-thumbs label:nth-child(1), #photo-1:checked ~ .gallery-thumbs label:nth-child(2), #photo-2:checked ~ .gallery-thumbs label:nth-child(3), #photo-3:checked ~ .gallery-thumbs label:nth-child(4), #photo-4:checked ~ .gallery-thumbs label:nth-child(5) { border-color: var(--cobalt); }
-#photo-0:checked ~ .gallery-thumbs label:nth-child(1) img, #photo-1:checked ~ .gallery-thumbs label:nth-child(2) img, #photo-2:checked ~ .gallery-thumbs label:nth-child(3) img, #photo-3:checked ~ .gallery-thumbs label:nth-child(4) img, #photo-4:checked ~ .gallery-thumbs label:nth-child(5) img { opacity: 1; }
+#photo-0:checked ~ .gallery-main figure:nth-child(1), #photo-1:checked ~ .gallery-main figure:nth-child(2), #photo-2:checked ~ .gallery-main figure:nth-child(3), #photo-3:checked ~ .gallery-main figure:nth-child(4), #photo-4:checked ~ .gallery-main figure:nth-child(5), #photo-5:checked ~ .gallery-main figure:nth-child(6), #photo-6:checked ~ .gallery-main figure:nth-child(7), #photo-7:checked ~ .gallery-main figure:nth-child(8) { opacity: 1; }
+#photo-0:checked ~ .gallery-thumbs label:nth-child(1), #photo-1:checked ~ .gallery-thumbs label:nth-child(2), #photo-2:checked ~ .gallery-thumbs label:nth-child(3), #photo-3:checked ~ .gallery-thumbs label:nth-child(4), #photo-4:checked ~ .gallery-thumbs label:nth-child(5), #photo-5:checked ~ .gallery-thumbs label:nth-child(6), #photo-6:checked ~ .gallery-thumbs label:nth-child(7), #photo-7:checked ~ .gallery-thumbs label:nth-child(8) { border-color: var(--cobalt); }
+#photo-0:checked ~ .gallery-thumbs label:nth-child(1) img, #photo-1:checked ~ .gallery-thumbs label:nth-child(2) img, #photo-2:checked ~ .gallery-thumbs label:nth-child(3) img, #photo-3:checked ~ .gallery-thumbs label:nth-child(4) img, #photo-4:checked ~ .gallery-thumbs label:nth-child(5) img, #photo-5:checked ~ .gallery-thumbs label:nth-child(6) img, #photo-6:checked ~ .gallery-thumbs label:nth-child(7) img, #photo-7:checked ~ .gallery-thumbs label:nth-child(8) img { opacity: 1; }
 .pdp-gallery > input:focus-visible ~ .gallery-thumbs { outline: 2px solid var(--cobalt); outline-offset: 2px; }
 
 .pdp-price { margin: 4px 0 0; font: 600 34px/1 var(--serif); font-variant-numeric: lining-nums; }
@@ -289,7 +290,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Language and currency pickers (utility bar, price list, product page) */
 .currency select { max-width: 240px; padding: 3px 6px; border: 1px solid var(--silver); border-radius: 3px; background: #fff; color: var(--ink); font: 500 14px var(--sans); cursor: pointer; }
-.utility .currency select { max-width: 150px; border-color: #3a4560; background: var(--ink); color: var(--porcelain); }
+.utility .currency select { width: 130px; border-color: #3a4560; background: var(--ink); color: var(--porcelain); }
 .pdp-price .currency { display: block; margin-top: 12px; }
 .pl-currency { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 15px; font-weight: 500; }
 .rate-note { margin: 8px 0 0; color: var(--muted); font-size: 14px; }

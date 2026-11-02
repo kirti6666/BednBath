@@ -39,7 +39,7 @@ export default async function ProductPage({ params }) {
     ['Fabric', unique(variants.map((v) => v.fabric)).join(', ')],
     ['Style', unique(variants.map((v) => v.style)).join(', ')],
     ['Sizes', sizes.join(', ')],
-    ['Colours', photoCaptions[product.name]?.join(', ') ?? ''],
+    ['Colours', unique(photoCaptions[product.name] ?? []).join(', ')],
     // Sheets, covers and pillowcases come in every thread count of the bed sheet specification, priced or not.
     ['Thread count', ['Bedsheets', 'Duvet Covers', 'Pillowcases'].includes(product.name) ? '300 TC, 400 TC, 600 TC' : ''],
     ['Minimum order', !options.length ? '' : unique(options.map((o) => o.moq)).length === 1 ? `${options[0].moq} per size` : 'Depends on size'],

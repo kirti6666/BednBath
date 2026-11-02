@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "preview": "next build && node scripts/preview.mjs",
+    "build": "node scripts/fetch-rates.mjs && next build",
+    "preview": "npm run build && node scripts/preview.mjs",
     "test": "node scripts/test.mjs"
   },
   "dependencies": {
