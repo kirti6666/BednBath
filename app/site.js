@@ -53,7 +53,7 @@ export const categories = [
   { name: 'Bath Linen', note: 'Soft, highly absorbent and durable hotel-quality towels.',
     products: ['Bath Towels', 'Hand Towels', 'Face Towels', 'Bath Mats', 'Bathrobes'], photo: '/images/towels.jpg' },
   { name: 'Banquet Linen', note: 'Stain-resistant, elegant fabrics for banquets and events.',
-    products: ['Table Cloths', 'Napkins', 'Runners', 'Chair Covers', 'Chair Sashes', 'Skirting'], photo: '/images/chair-cover-table.jpg' },
+    products: ['Table Cloths', 'Napkins', 'Runners', 'Chair Covers', 'Chair Sashes', 'Skirting'], photo: '/images/table-cloth-golden.jpg' },
 ];
 export const products = categories.flatMap((c) => c.products);
 // shortcut: photos only for the products we have pictures of; the rest show a placeholder until photos arrive.
@@ -69,6 +69,10 @@ export const photos = {
   'Duvets & Comforters': img('comforter-red', 'comforter-pink', 'comforter-grey', 'comforter-grey-folded', 'comforter-grey-bed', 'comforter-black', 'comforter-white'),
   'Table Cloths': img('table-cloth-white', 'table-cloth-golden', 'table-cloth-red', 'table-cloth-white-round', 'table-cloth-maroon', 'table-cloth-pink', 'table-cloth-silver', 'table-cloth-blue'),
   'Chair Covers': img('chair-cover-table', 'chair-cover-views', 'chair-cover-white', 'chair-cover-black', 'chair-cover-red', 'chair-cover-royal-blue', 'chair-cover-gold', 'chair-cover-maroon'),
+  // shortcut: banquet table photos stand in for napkins, runners and skirting until their own photos arrive.
+  'Napkins': img('table-cloth-red', 'table-cloth-white-round', 'table-cloth-maroon'),
+  'Runners': img('table-cloth-golden', 'table-cloth-silver', 'table-cloth-blue'),
+  'Skirting': img('table-cloth-white', 'table-cloth-pink', 'table-cloth-maroon'),
   'Chair Sashes': img('chair-sash-bow', 'chair-sash-cap', 'chair-sash-ribbon', 'chair-sash-all'),
 };
 // Captions shown on a product's photos, in the same order as its photos.
